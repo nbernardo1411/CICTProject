@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
+  <head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="dashboard.component.css">
+    <head>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+  </head>
+
+  <body>
+    <div class="CICT-Head">
+      <img src="assets/CICT.png" class="CICT-Image">
+      <h1>College of Information Communications Technology</h1>
+      <p>Class Monitoring and Key Inventory System</p>
+      <img src="assets/bell.png" class="CICT-Bell">
+      <img src="assets/account.png" class="CICT-Account">
+      <img src="assets/down-arrow.png" class="CICT-Arrow">
+    </div>
+
+
+
+
+    <div class="dashboard">
+      <div class="welcome-admin text-center">
+        <h2>Welcome Admin,</h2>
+        <p>Today is {{ currentDate | date:'mediumDate' }}</p>
+        <div class="clock">
+          <span class="time">{{ currentDate | date:'shortTime' }}</span>
+        </div>
+        <img src="assets/design.png" alt="calendar image" class="center-image">
+      </div>
+
+
+
+    <div class="attendance-status">
+      <h2>Attendance Status</h2>
+      <div class="attendance-chart-container">
+        <app-attendance-chart></app-attendance-chart>
+      </div>
+    </div>
+
+
+
+      <div class="attendance">
+        <h2>Attendance Log</h2>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Time In</th>
+            <th>Time Out</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>No Data</td>
+            <td>No Data</td>
+            <td>No Data</td>
+            <td>No Data</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="today-schedule">
+        <h2>Today's Schedule</h2>
+        <table>
+          <tr>
+            <th>Faculty</th>
+            <th>Time</th>
+            <th>Duration</th>
+
+          </tr>
+          <tr>
+            <td>No Data</td>
+            <td>No Data</td>
+            <td>No Data</td>
+
+          </tr>
+        </table>
+      </div>
+
+      <div class="key-log">
+        <h2>Key Logs</h2>
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Name</th>
+          </tr>
+          <tr>
+            <td>No Data</td>
+            <td>No Data</td>
+            <td>No Data</td>
+
+          </tr>
+        </table>
+      </div>
+
+
+    </div>
+  </body>
+</html>

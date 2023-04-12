@@ -1,0 +1,49 @@
+<div class="sidebar" [ngClass]="collapsed ? 'sidebar-collapsed': ''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">
+      <img src="assets/menu.png" class="logo-cict" alt="Logo">
+    </button>
+    <div class="logo-text" *ngIf="collapsed">Menu</div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSidebar()"></button>
+  </div>
+  <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a routerLink="/dashboard" class="sidebar-nav-link" >
+          <img class="sidebar-link-icon" src="/assets/dashboard.png">
+          <span class="sidebar-link-text" *ngIf="collapsed">Dashboard</span>
+        </a>
+      </li>
+
+      <li class="sidebar-nav-item">
+        <a routerLink="/faculty" class="sidebar-nav-link">
+          <img class="sidebar-link-icon" src="/assets/calendar.png">
+          <span class="sidebar-link-text" *ngIf="collapsed">Faculty and Schedule Management</span>
+        </a>
+      </li>
+    <li class="sidebar-nav-item">
+      <a routerLink="/inventory" class="sidebar-nav-link" >
+        <img class="sidebar-link-icon" src="/assets/folder.png">
+        <span class="sidebar-link-text" *ngIf="collapsed">Module</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a routerLink="/settings" class="sidebar-nav-link" >
+        <img class="sidebar-link-icon" src="/assets/paper.png">
+        <span class="sidebar-link-text" *ngIf="collapsed">Reports</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a routerLink="#" class="sidebar-nav-link" >
+        <img class="sidebar-link-icon" src="/assets/star.png">
+        <span class="sidebar-link-text" *ngIf="collapsed">Content Management</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a routerLink="/login" class="sidebar-nav-link" >
+        <i class="sidebar-link-icon"></i>
+        <img class="sidebar-link-icon" src="/assets/switch.png">
+        <span class="sidebar-link-text" *ngIf="collapsed">Logout</span>
+      </a>
+    </li>
+  </ul>
+</div>

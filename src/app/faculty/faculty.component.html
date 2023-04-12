@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
+<head>
+	<title>Faculty and Schedule Management</title>
+	<link rel="stylesheet" href="faculty.component.css">
+</head>
+<div class="CICT-Head">
+  <img src="assets/CICT.png" class="CICT-Image">
+  <h1>College of Information Communications Technology</h1>
+  <p>Class Monitoring and Key Inventory System</p>
+  <img src="assets/bell.png" class="CICT-Bell">
+  <img src="assets/account.png" class="CICT-Account">
+  <img src="assets/down-arrow.png" class="CICT-Arrow">
+</div>
+<body>
+	<div class="container">
+		<div class="nav">
+			<a href="faculty" class="active">Faculty</a>
+			<a href="schedule">Schedule</a>
+			<div class="form">
+				<input type="text" placeholder="Search...">
+				<button>🔍Search</button>
+			</div>
+		</div>
+		<section class ="box"id="faculty">
+      <button class="addFaculty" (click)="addFaculty()">
+        <img src="assets/add-group.png" alt="Add Faculty">
+        Add Faculty
+      </button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>ID Number</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let faculty of facultyList; let i=index">
+            <tr *ngIf="editingFaculty === faculty; else showFacultyData">
+              <td>{{i + 1}}</td>
+              <td><input type="text" [(ngModel)]="id"></td>
+              <td><input type="text" [(ngModel)]="name"></td>
+              <td><input type="text" [(ngModel)]="email"></td>
+              <td class="action-buttons">
+                <button class="save" (click)="saveFaculty()">Save</button>
+                <button class="cancel" (click)="cancelEdit()">Cancel</button>
+              </td>
+            </tr>
+            <ng-template #showFacultyData>
+              <tr>
+                <td>{{i + 1}}</td>
+                <td>{{faculty.id}}</td>
+                <td>{{faculty.name}}</td>
+                <td>{{faculty.email}}</td>
+                <td class="action-buttons">
+                  <button class="edit" (click)="editFaculty(faculty)">Edit</button>
+                  <button class="delete" (click)="deleteFaculty(faculty)">Delete</button>
+                </td>
+              </tr>
+            </ng-template>
+          </ng-container>
+        </tbody>
+      </table>
+    </section>
+
+	</div>
+</body>
+</html>
+

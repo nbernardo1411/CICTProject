@@ -1,0 +1,304 @@
+.CICT-Head {
+  position: relative;
+  height: 80px;
+  background-color: #f7ab30;
+}
+
+.CICT-Image{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  transform: translateY(-50%);
+}
+
+
+.CICT-Head h1 {
+  position: absolute;
+  top: 30%;
+  left: 80px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 40px;
+  color: #333;
+}
+.CICT-Head p {
+  position: absolute;
+  top: 70%;
+  left: 85px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.CICT-Head2 h3{
+  position: relative;
+  top: 20px;
+  left: 1px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 40px;
+  color: #333;
+}
+.CICT-Bell{
+  position: absolute;
+  top: 50%;
+  right: 90px;
+  width: 25px;
+  height: 25px;
+  transform: translateY(-50%);
+  
+}
+
+.CICT-Account{
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  width: 35px;
+  height: 35px;
+  transform: translateY(-50%);
+  
+}
+.CICT-Arrow{
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 25px;
+  height: 25px;
+  transform: translateY(-50%);
+  
+}
+
+
+.welcome-admin {
+  position: relative;
+}
+
+.clock {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 16px;
+  font-weight: bold;
+
+}
+
+.clock .time {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+
+  border-radius: 5px;
+}
+
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.dashboard > div {
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 10);
+  animation: fadeIn 1s;
+}
+.dashboard > .attendance{
+  width: 900px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 10);
+  animation: fadeIn 1s;
+}
+
+.attendance {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-x: auto;
+  font-weight: bold;
+}
+
+.attendance-status h2 {
+  text-align: center;
+  font-weight: bold;
+  color: orange;
+}
+.today-schedule h2 {
+  text-align: center;
+  font-weight: bold;
+  color: orange;
+}
+.today-schedule table {
+  width: 100%;
+  border-collapse: collapse;
+  color: gray;
+  margin-top: 10px;
+  white-space: nowrap;
+}
+.attendance h2 {
+  text-align: center;
+  font-weight: bold;
+  color: orange;
+}
+
+.attendance table {
+  width: 100%;
+  border-collapse: collapse;
+  color: gray;
+  margin-top: 10px;
+  white-space: nowrap;
+}
+
+.attendance th, .attendance td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.attendance th {
+  background-color: #f2f2f2;
+}
+
+.attendance tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.attendance tr:hover {
+  background-color: #ddd;
+}
+
+/* Designs */
+.attendance table {
+  box-shadow: 1px 1px 5px #ccc;
+  border-radius: 5px;
+}
+
+.attendance th {
+  background-color: #eee;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.attendance td {
+  background-color: #fff;
+}
+
+.attendance tr:hover td {
+  background-color: #f5f5f5;
+}
+.dashboard > .today-schedule{
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 10);
+}
+.welcome-admin {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: rgb(112, 112, 112);
+  animation-name: slide-in;
+  animation-duration: 1s;
+}
+
+.welcome-admin h2{
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: orange;
+}
+
+.dashboard > .welcome-admin{
+  width: 900px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 10);
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dashboard > .key-log{
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 10);
+}
+.key-log {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: rgb(112, 112, 112);
+  animation-name: slide-in;
+  animation-duration: 1s;
+}
+
+.key-log h2{
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: orange;
+}
+.key-log table {
+  width: 100%;
+  border-collapse: collapse;
+  color: gray;
+  margin-top: 10px;
+  font-weight: lighter;
+  white-space: nowrap;
+}
+.attendance-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+.attendance-status h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}

@@ -17,6 +17,5 @@ export class DashboardComponent {
   screenWidth = 0;
 
   onToggleSideBar(): void {
-    // Add implementation for the method here
   }
 }

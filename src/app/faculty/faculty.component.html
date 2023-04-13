@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
+
 <head>
 	<title>Faculty and Schedule Management</title>
 	<link rel="stylesheet" href="faculty.component.css">
 </head>
-<div class="CICT-Head">
-  <img src="assets/CICT.png" class="CICT-Image">
-  <h1>College of Information Communications Technology</h1>
-  <p>Class Monitoring and Key Inventory System</p>
-  <img src="assets/bell.png" class="CICT-Bell">
-  <img src="assets/account.png" class="CICT-Account">
-  <img src="assets/down-arrow.png" class="CICT-Arrow">
-</div>
+
 <body>
-	<div class="container">
+  <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
+  <div class="CICT-Head2">
+    <h3>Faculty and Schedule Management</h3>
+  </div>
+	<div class="cont">
 		<div class="nav">
 			<a href="faculty" class="active">Faculty</a>
 			<a href="schedule">Schedule</a>
-			<div class="form">
-				<input type="text" placeholder="Search...">
-				<button>🔍Search</button>
-			</div>
+      <div class="form">
+        <input type="text" placeholder="Search..." >
+        <button (click)="addFaculty()">Add New Faculty
+          <img src="assets/add-group.png" alt="Add Faculty">
+        </button>
+      </div>
+			
 		</div>
+    
 		<section class ="box"id="faculty">
-      <button class="addFaculty" (click)="addFaculty()">
-        <img src="assets/add-group.png" alt="Add Faculty">
-        Add Faculty
-      </button>
+      <div class="Sect">
+        <button class="Section-Sort">Sort by LastName
+          <div class="Sort-List">
+            <a href="#">Sort by FirstName</a>
+            <a href="#">Sort by Email</a>
+            <a href="#">Sort by ID No.</a>
+          </div>
+        </button>
+      </div>
+
+
+      
+      
 
       <table>
         <thead>
@@ -43,9 +53,9 @@
           <ng-container *ngFor="let faculty of facultyList; let i=index">
             <tr *ngIf="editingFaculty === faculty; else showFacultyData">
               <td>{{i + 1}}</td>
-              <td><input type="text" [(ngModel)]="id"></td>
-              <td><input type="text" [(ngModel)]="name"></td>
-              <td><input type="text" [(ngModel)]="email"></td>
+              <td><input type="text" [(ngModel)]="id" maxlength="6"></td>
+              <td><input type="text" [(ngModel)]="name" maxlength="30"></td>
+              <td><input type="text" [(ngModel)]="email" maxlength="30"></td>
               <td class="action-buttons">
                 <button class="save" (click)="saveFaculty()">Save</button>
                 <button class="cancel" (click)="cancelEdit()">Cancel</button>

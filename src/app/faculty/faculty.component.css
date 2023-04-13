@@ -1,18 +1,24 @@
 table {
   border-collapse: collapse;
   width: 100%;
+  
 }
 th, td {
 text-align: left;
 padding: 8px;
 border-bottom: 1px solid #ddd;
+max-width: 0;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+max-width: 200px; /* Change this to your desired max-width */
+
 }
 
 th {
 background-color: orange;
 color: white;
-border-radius: 10px;
-font-family: Arial, Helvetica, sans-serif;
+font-family: montserrat;
 }
 
 .action-buttons {
@@ -38,25 +44,36 @@ border-radius: 3px;
 background-color: orange;
 }
 
-.nav {
+.CICT-Head2 h3{
+  position: relative;
+  top: 20px;
+  left: 1px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 30px;
+  color: #333;
+  font-family: montserrat;
+}
+.nav{
   display: flex;
-  background-color: #9c0000;
-  padding: 10px;
-  margin-bottom: 20px;
-  align-items: center;
-  justify-content: space-between;
-  width: 900px;
-  margin: 0 auto;
-  margin-bottom: 10px;
+  width: 1100px;
 }
 
-
 .nav a {
-color: #ffffff;
+text-align: center;
+color: #000000;
 padding: 10px;
 text-decoration: none;
-border-radius: 3px;
-font-weight: bold;
+border-radius: 50px;
+margin: 10px;
+width: 100px;
+height: 40px;
+font-family: montserrat;
+
+}
+.nav a:hover{
+  background-color: rgb(255, 223, 164);
+  color: white;
 }
 
 .nav a.active {
@@ -65,17 +82,27 @@ color: white;
 }
 
 .form {
+top: 10%;
+height: 80px;
 display: flex;
 align-items: center;
+right: 20px;
+position: absolute;
+border: none;
+
 }
 
 .form input[type="text"] {
 padding: 5px;
-border-radius: 3px;
+border-radius: 50px;
 border: none;
 margin-right: 10px;
-width: 200px;
+width: 240px;
+box-shadow: 0px 2px 4px black;
+text-indent: 10px;
+height: 50px;
 }
+
 
 .form button {
 padding: 5px 10px;
@@ -83,7 +110,12 @@ background-color: orange;
 color: white;
 border: none;
 cursor: pointer;
-border-radius: 3px;
+border-radius: 50px;
+height: 50px;
+width: 200px;
+text-indent: 10px;
+text-align: left;
+font-family: montserrat;
 }
 
 .form button:hover {
@@ -107,82 +139,8 @@ border-radius: 3px;
 .add-schedule button:hover {
 background-color: rgb(255, 230, 0);
 }
-.CICT-Head {
-  position: relative;
-  height: 80px;
-  background-color: #f7ab30;
-}
-
-.CICT-Image{
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  width: 50px;
-  height: 50px;
-  transform: translateY(-50%);
-}
 
 
-.CICT-Head h1 {
-  position: absolute;
-  top: 30%;
-  left: 80px;
-  transform: translateY(-50%);
-  margin: 0;
-  font-size: 40px;
-  color: #333;
-}
-.CICT-Head p {
-  position: absolute;
-  top: 70%;
-  left: 85px;
-  transform: translateY(-50%);
-  margin: 0;
-  font-size: 20px;
-  color: #333;
-}
-
-.CICT-Head2 h3{
-  position: relative;
-  top: 20px;
-  left: 1px;
-  transform: translateY(-50%);
-  margin: 0;
-  font-size: 40px;
-  color: #333;
-}
-.CICT-Bell{
-  position: absolute;
-  top: 50%;
-  right: 90px;
-  width: 25px;
-  height: 25px;
-  transform: translateY(-50%);
-
-}
-
-.CICT-Account{
-  position: absolute;
-  top: 50%;
-  right: 40px;
-  width: 35px;
-  height: 35px;
-  transform: translateY(-50%);
-
-}
-.CICT-Arrow{
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  width: 25px;
-  height: 25px;
-  transform: translateY(-50%);
-
-}
-#faculty {
-  align-items: center;
-  justify-content: space-between;
-}
 
 h2 {
   margin: 0;
@@ -206,13 +164,59 @@ h2 {
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    width: 1200px;
+    width: 900px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px black;
-    resize: both;
+    height: 1000px;
     overflow: auto;
     max-height: 500px;
     margin: 0 auto;
     margin-bottom: 10px;
   }
+
+.box .Sect{
+  position: relative;
+  right: 355px;
+  margin: 5px;
+  box-sizing: border-box;
+  border: none;
+}
+
+.Section-Sort{
+  height: 30px;
+  width: 150px;
+  position: relative;
+  background-color: orange;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  font-family: montserrat;
+  border: none;
+}
+.Sort-List{
+  height: auto;
+  width: 150px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  display: none;
+}
+.Sort-List a{
+  color: black;
+  display: block;
+  text-align: left;
+  padding-left: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: montserrat;
+}
+.Sort-List a:hover{
+  background-color: orange;
+  color: white;
+}
+.Section-Sort:hover .Sort-List{
+  display: block;
+  box-shadow: 0px 2px 4px black;
+}

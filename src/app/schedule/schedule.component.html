@@ -1,59 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
   <head>
     <title>Faculty and Schedule Management - Schedule</title>
     <link rel="stylesheet" href="schedule.component.css">
   </head>
   <body>
-    <div class="CICT-Head">
-      <img src="assets/CICT.png" class="CICT-Image">
-      <h1>College of Information Communications Technology</h1>
-      <p>Class Monitoring and Key Inventory System</p>
-      <img src="assets/bell.png" class="CICT-Bell">
-      <img src="assets/account.png" class="CICT-Account">
-      <img src="assets/down-arrow.png" class="CICT-Arrow">
+    <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
+    <div class="CICT-Head2">
+      <h3>Faculty and Schedule Management</h3>
     </div>
-    <div class="container">
+    <div class="cont">
       <div class="nav">
         <a href="faculty">Faculty</a>
         <a href="schedule" class="active">Schedule</a>
-        <div class="form">
-          <input type="text" placeholder="Search...">
-          <button>🔍Search</button>
+        <div class="form" id="form">
+          <input type="Stext" placeholder="Search...">
+          <button type="button" (click)="showForm = !showForm">
+            Add New Schedule
+            <img src="assets/add-event.png" alt="Add Event">
+          </button>
         </div>
       </div>
+          <div id="add-form" *ngIf="showForm">
+            <form>
+              <div class="newbox">
+                <h1>New Schedule</h1>
+              </div><br>
+              <div class="mbox">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" [(ngModel)]="newDate" class="mid" style="resize: horizontal;">
+              </div><br>
+              <div class="mbox">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" [(ngModel)]="newTime" class="mid" style="resize: horizontal;">
+              </div><br>
+              <div class="mbox">
+                <label for="subject">Subject:</label>
+                <input type="subject" id="subject" name="subject" [(ngModel)]="newSubject" style="resize: horizontal;">
+              </div><br>
+              <div class="mbox">
+                <label for="description">Description:</label>
+                <input type="description" id="description" name="description" [(ngModel)]="newDescription" style="resize: horizontal;">
+              </div><br>
+              <div class="mbox">
+                <label for="section">Section:</label>
+                <input type="section" id="section" name="section" [(ngModel)]="newSection" style="resize: horizontal;">
+              </div><br>
+              <div class="mbox">
+                <label for="location">Location:</label>
+                <input type="location" id="location" name="location" [(ngModel)]="newLocation" style="resize: horizontal;">
+              </div><br>
+              <div class="mbox">
+                <label for="semester">SEMESTER / S.Y:</label>
+                <input type="semester" id="semester" name="semester" [(ngModel)]="newSemester" style="resize: horizontal;">
+              </div><br>
+              <div class="butEvent">
+              <button value="Add Event" (click)="addEvent(newDate, newTime, newSubject, newDescription, newSection, newLocation, newSemester)">
+                Save</button>
+                <button (click)="showForm = !showForm">Cancel         
+                </button>
+              </div>
+            </form>
+          </div>
+        
     </div>
     <form class="box">
-      <div class="mbox">
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" [(ngModel)]="newDate" class="mid" style="resize: horizontal;">
-      </div><br><br>
-      <div class="mbox">
-        <label for="time">Time:</label>
-        <input type="time" id="time" name="time" [(ngModel)]="newTime" class="mid" style="resize: horizontal;">
-      </div><br><br>
-      <div class="mbox">
-        <label for="event">Event:</label>
-        <input type="text" id="event" name="event" [(ngModel)]="newEvent" style="resize: horizontal;">
-      </div><br><br>
-      <button type="button" class="sub" value="Add Event" (click)="addEvent(newDate, newTime, newEvent)">
-<img src="assets/add-event.png" alt="Add Event"> Add Event</button>
+      <div id="calendar-container">
+        <div class="calendar-header">
+          <a (click)="prevMonth">Prev</a>
+          <h2 id="calendar-title">{{ calendarTitle }}</h2>
+          <a (click)="nextMonth">Next</a>
+        </div>
+        <div class="calendar-body">
+          <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="days">
+            <div *ngFor="let day of days[0]">{{ day }}</div>
+          </div>          
+        </div>
+      </div>
+      
+      
+      
+      
 
       <br><br> <table class="schedule">
       <thead>
         <tr>
           <th>Date</th>
           <th>Time</th>
-          <th>Event</th>
-          <th>Actions</th>
+          <th>Description</th>
+          <th>Section</th>
+          <th>Location</th>
+          <th>Semester</th>
+          <th>Action</th>
+          
         </tr>
       </thead>
       <tbody>
+        
+
         <tr *ngFor="let event of events; let i = index">
           <td>{{ event.date }}</td>
           <td>{{ event.time }}</td>
-          <td>{{ event.event }}</td>
+          <td>{{ event.description }}</td>
+          <td>{{ event.section }}</td>
+          <td>{{ event.location }}</td>
+          <td>{{ event.semester }}</td>
           <td>
             <button (click)="deleteEvent(i)">Delete</button>
           </td>
@@ -62,5 +122,8 @@
     </table>
     </form>
   </body>
+  <script>
+    this.daysContainerRef.nativeElement.querySelector('.days').appendChild(box);
+  </script>
+  
 </html>
-

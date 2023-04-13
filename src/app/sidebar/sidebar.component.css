@@ -1,23 +1,24 @@
 .sidebar{
-  background: #2D343E;
+  background: #ffffff;
   transition: all .3s ease;
-  position: static;
+  position: sticky;
   float:left;
   z-index: 1;
-  margin-top: 80px;
   margin-right: 10px;
-  height: auto;
   top: 10.4%;
   width: 5rem;
+  height: 100vh;
   box-shadow: 3px 0 5px 0 #869083;
-  border-radius: 20px;
 }
 
 .logo-cict{
+  align-items: center;
   margin: 0 21px;
-  width: 35px;
+  margin-top: 8px;
+  width: 35px; 
   height: 35px;
-  border-color: transparent;
+  border: none;
+
 }
 
 .logo-container {
@@ -25,22 +26,17 @@
   align-items: center;
   border-radius: 0;
   width: 100%;
-}
-.logo-container .logo{
-
-  border-radius: 20px;
-  border-color: transparent;
-  background-color: transparent;
-
+  border: none;
 }
 .logo-text{
   margin-left: 2.75rem;
-
+  font-family: montserrat;
   font-size: 24px;
   font-weight: 700;
-  color: #fff;
+  color: #000000;
+  border: none;
+  margin-left: 90px;
 }
-
 .btn-close{
   margin-left: auto;
   cursor: pointer;
@@ -49,6 +45,19 @@
   border-radius: 50%;
   background-color: transparent;
   border: none;
+}
+
+.logo-container .logo{
+
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 3px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background-color: transparent;
+  border: none;
+
 }
 
 
@@ -97,10 +106,82 @@
 .sidebar-link-text{
   margin-left: 3rem;
   text-align: center;
+  font-family: montserrat;
+  color: black;
 
 }
 
+.sidebar-link-text:hover{
+  color: #ffffff;
+}
+
 .sidebar-nav-link:hover{
-  background-color: rgba(163, 163, 163, 0.349);
-  border-radius: 20px;
+  background-color: orange;
+}
+
+.CICT-Head {
+  position: relative;
+  height: 80px;
+  background-color: #f7ab30;
+}
+
+.CICT-Image{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  transform: translateY(-50%);
+}
+
+
+.CICT-Head h1 {
+  position: absolute;
+  top: 30%;
+  left: 80px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 40px;
+  color: #333;
+  font-family: montserrat;
+}
+.CICT-Head p {
+  position: absolute;
+  top: 70%;
+  left: 85px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  font-family: montserrat;
+}
+
+
+.CICT-Bell{
+  position: absolute;
+  top: 50%;
+  right: 90px;
+  width: 25px;
+  height: 25px;
+  transform: translateY(-50%);
+  
+}
+
+.CICT-Account{
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  width: 35px;
+  height: 35px;
+  transform: translateY(-50%);
+  
+}
+.CICT-Arrow{
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 25px;
+  height: 25px;
+  transform: translateY(-50%);
+  
 }

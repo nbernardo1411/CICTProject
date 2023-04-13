@@ -1,84 +1,3 @@
-
-.CICT-Head {
-  position: relative;
-  height: 80px;
-  background-color: #f7ab30;
-}
-
-.CICT-Image{
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  width: 50px;
-  height: 50px;
-  transform: translateY(-50%);
-}
-
-
-.CICT-Head h1 {
-  position: absolute;
-  top: 30%;
-  left: 80px;
-  transform: translateY(-50%);
-  margin: 0;
-  font-size: 40px;
-  color: #333;
-}
-.CICT-Head p {
-  position: absolute;
-  top: 70%;
-  left: 85px;
-  transform: translateY(-50%);
-  margin: 0;
-  font-size: 20px;
-  color: #333;
-}
-
-.CICT-Head2 h3{
-  position: relative;
-  top: 20px;
-  left: 1px;
-  transform: translateY(-50%);
-  margin: 0;
-  font-size: 40px;
-  color: #333;
-}
-.CICT-Bell{
-  position: absolute;
-  top: 50%;
-  right: 90px;
-  width: 25px;
-  height: 25px;
-  transform: translateY(-50%);
-
-}
-
-.CICT-Account{
-  position: absolute;
-  top: 50%;
-  right: 40px;
-  width: 35px;
-  height: 35px;
-  transform: translateY(-50%);
-
-}
-.CICT-Arrow{
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  width: 25px;
-  height: 25px;
-  transform: translateY(-50%);
-
-}
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #ff8800;
-}
-
 nav ul {
   display: flex;
   list-style: none;
@@ -112,60 +31,99 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-footer {
-  padding: 10px;
-  background-color: #f2f2f2;
-  text-align: center;
+
+.CICT-Head2 h3{
+  position: relative;
+  top: 20px;
+  left: 1px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: 30px;
+  color: #333;
+  font-family: montserrat;
 }
+
 .nav {
   display: flex;
-  background-color: #9c0000;
-  padding: 10px;
-  margin-bottom: 20px;
-  align-items: center;
-  justify-content: space-between;
-  width: 900px;
-  margin: 0 auto;
-  margin-bottom: 10px;
+  width: 1100px;
 }
 
-  .nav a {
-  color: #ffffff;
-  padding: 10px;
-  text-decoration: none;
-  border-radius: 3px;
-  font-weight: bold;
-  }
+.nav a {
 
+text-align: center;
+color: #000000;
+padding: 10px;
+text-decoration: none;
+border-radius: 50px;
+margin: 10px;
+width: 100px;
+height: 40px;
+font-family: montserrat;
+    
+}
+  .nav a:hover{
+    background-color: rgb(255, 223, 164);
+    color: white;
+  }
   .nav a.active {
   background-color: orange;
   color: white;
   }
 
   .form {
-  display: flex;
-  align-items: center;
+    top: 10%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    right: 20px;
+    position: absolute;
+    border: none;
   }
 
-  .form input[type="text"] {
-  padding: 5px;
-  border-radius: 3px;
-  border: none;
-  margin-right: 10px;
-  width: 200px;
+  .form input[type="Stext"] {
+    padding: 5px;
+    border-radius: 50px;
+    border: none;
+    margin-right: 10px;
+    width: 240px;
+    box-shadow: 0px 2px 4px black;
+    text-indent: 10px;
+    height: 50px;
   }
 
   .form button {
-  padding: 5px 10px;
-  background-color: orange;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 3px;
+    padding: 5px 10px;
+    background-color: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    height: 50px;
+    width: 200px;
+    text-indent: 10px;
+    text-align: left;
+    font-family: montserrat;
   }
 
   .form button:hover {
   background-color: rgb(255, 230, 0);
+  }
+
+  #add-form {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 350px;
+    width: 500px;
+    height: 550px;
+    background-color: #fff;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.3);
+  }
+  #show-form:checked ~ #add-form {
+    display: block;
+    background-color: #fff;
   }
   .schedule-list {
     margin: 20px auto;
@@ -195,22 +153,9 @@ footer {
     background-color: #f2f2f2;
   }
 
-  .sub {
-    background-color: orange;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-
-  .sub:hover {
-    background-color: #ffee00;
-  }
 
   .schedule-container {
+    display: flex;
     box-sizing: border-box;
     width: 800px;
     padding: 20px;
@@ -254,14 +199,12 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-sizing: border-box;
-    width: 1200px;
+    width: 900px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px black;
-    resize: both;
     overflow: auto;
-    max-height: 500px;
+    max-height: 650px;
     margin: 0 auto;
     margin-bottom: 10px;
   }
@@ -273,16 +216,100 @@ footer {
     align-items: center;
   }
 
-  label {
+  .mbox label {
     width: 100px;
   }
 
-  input[type="date"],
-  input[type="time"],
-  input[type="text"] {
+.mbox input {
     width: 300px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     padding: 5px;
     margin-left: 10px;
+    box-shadow: 0px 0px 10px black;
   }
+
+
+  .newbox h1{
+    position: relative;
+    top: 20px;
+    right: 170px;
+    transform: translateY(-50%);
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    font-family: montserrat;
+  }
+
+.butEvent button{
+  position: relative;
+  background-color: orange;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  height: 50px;
+  width: 100px;
+  left: 120px;
+  text-indent: 25px;
+  text-align: left;
+  font-family: montserrat;
+  margin-top: 15px;
+  margin-right: 10px;
+  transform: translateY(-50%);
+}
+
+#calendar-container {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-header a {
+  cursor: pointer;
+}
+
+.weekdays {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.weekdays div {
+  width: calc(100% / 7);
+  text-align: center;
+  font-weight: bold;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day {
+  width: calc(100% / 7);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.today {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.other-month {
+  color: #bbb;
+}
+

@@ -16,8 +16,8 @@
         <div class="form" id="form">
           <input type="Stext" placeholder="Search...">
           <button type="button" (click)="showForm = !showForm">
-            Add New Schedule
-            <img src="assets/add-event.png" alt="Add Event">
+            Add a Schedule
+          <img src="assets/add-event.png" alt="Add Event">
           </button>
         </div>
       </div>
@@ -57,40 +57,14 @@
               <div class="butEvent">
               <button value="Add Event" (click)="addEvent(newDate, newTime, newSubject, newDescription, newSection, newLocation, newSemester)">
                 Save</button>
-                <button (click)="showForm = !showForm">Cancel         
+                <button (click)="showForm = !showForm">Cancel
                 </button>
               </div>
             </form>
           </div>
-        
+
     </div>
     <form class="box">
-      <div id="calendar-container">
-        <div class="calendar-header">
-          <a (click)="prevMonth">Prev</a>
-          <h2 id="calendar-title">{{ calendarTitle }}</h2>
-          <a (click)="nextMonth">Next</a>
-        </div>
-        <div class="calendar-body">
-          <div class="weekdays">
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
-          </div>
-          <div class="days">
-            <div *ngFor="let day of days[0]">{{ day }}</div>
-          </div>          
-        </div>
-      </div>
-      
-      
-      
-      
-
       <br><br> <table class="schedule">
       <thead>
         <tr>
@@ -101,11 +75,11 @@
           <th>Location</th>
           <th>Semester</th>
           <th>Action</th>
-          
+
         </tr>
       </thead>
       <tbody>
-        
+
 
         <tr *ngFor="let event of events; let i = index">
           <td>{{ event.date }}</td>
@@ -125,5 +99,5 @@
   <script>
     this.daysContainerRef.nativeElement.querySelector('.days').appendChild(box);
   </script>
-  
+
 </html>

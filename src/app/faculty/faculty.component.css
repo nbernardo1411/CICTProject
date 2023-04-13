@@ -1,7 +1,7 @@
 table {
   border-collapse: collapse;
   width: 100%;
-  
+
 }
 th, td {
 text-align: left;
@@ -52,7 +52,7 @@ background-color: orange;
   margin: 0;
   font-size: 30px;
   color: #333;
-  font-family: montserrat;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .nav{
   display: flex;
@@ -115,7 +115,7 @@ height: 50px;
 width: 200px;
 text-indent: 10px;
 text-align: left;
-font-family: montserrat;
+font-family: Arial, Helvetica, sans-serif;
 }
 
 .form button:hover {
@@ -192,7 +192,7 @@ h2 {
   text-align: center;
   line-height: 30px;
   cursor: pointer;
-  font-family: montserrat;
+  font-family: Arial, Helvetica, sans-serif;
   border: none;
 }
 .Sort-List{
@@ -210,7 +210,7 @@ h2 {
   padding-left: 5px;
   font-size: 14px;
   text-decoration: none;
-  font-family: montserrat;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .Sort-List a:hover{
   background-color: orange;

@@ -57,9 +57,9 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
     }
     return days;
   }
-  
+
   days: number[][];
-  
+
   constructor() {
     this.newDate = new Date(); // initialize newDate with the current date in the constructor
   this.prevMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() - 1, 1);
@@ -71,7 +71,7 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
 
 
   }
- 
+
 
   newTime: string = '';
   newSubject: string = '';
@@ -110,7 +110,7 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
 
 
   }
-  
+
 
   ngAfterViewInit() {
     const daysContainer = this.daysContainerRef.nativeElement;
@@ -125,7 +125,7 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   }
 
   renderCalendar() {
-    
+
     const daysContainer = this.daysContainerRef.nativeElement;
 
     // Clear previous calendar
@@ -150,7 +150,7 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
 
     // Calculate next month date
     const nextMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 1);
-    
+
 
     // Create empty boxes for days before the first day of the month
     for (let i = 0; i < firstDayOfWeek; i++) {
@@ -176,15 +176,15 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
       box.classList.add('day', 'other-month');
       daysContainer.appendChild(box);
     }
-  
 
-  
+
+
     // Update the calendar header with the current month and year
     const calendarTitle = document.getElementById('calendar-title');
     if (calendarTitle) {
       calendarTitle.innerText = this.calendarTitle;
     }
-  
+
     // Add event listeners to the Prev and Next buttons in the calendar header
     const prevButton = document.querySelector('.calendar-header a:first-child');
     if (prevButton) {
@@ -193,7 +193,7 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
         this.renderCalendar();
       });
     }
-  
+
     const nextButton = document.querySelector('.calendar-header a:last-child');
     if (nextButton) {
       nextButton.addEventListener('click', () => {
@@ -201,10 +201,10 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
         this.renderCalendar();
       });
     }
-   
+
   }
-  
 
 
-  
+
+
 }

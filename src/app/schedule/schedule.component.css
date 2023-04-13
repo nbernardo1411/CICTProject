@@ -40,7 +40,7 @@ input[type="submit"] {
   margin: 0;
   font-size: 30px;
   color: #333;
-  font-family: montserrat;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .nav {
@@ -58,8 +58,8 @@ border-radius: 50px;
 margin: 10px;
 width: 100px;
 height: 40px;
-font-family: montserrat;
-    
+font-family: Arial, Helvetica, sans-serif;
+
 }
   .nav a:hover{
     background-color: rgb(255, 223, 164);
@@ -102,7 +102,7 @@ font-family: montserrat;
     width: 200px;
     text-indent: 10px;
     text-align: left;
-    font-family: montserrat;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .form button:hover {
@@ -239,7 +239,7 @@ font-family: montserrat;
     font-size: 20px;
     color: #333;
     font-weight: bold;
-    font-family: montserrat;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
 .butEvent button{
@@ -254,7 +254,7 @@ font-family: montserrat;
   left: 120px;
   text-indent: 25px;
   text-align: left;
-  font-family: montserrat;
+  font-family: Arial, Helvetica, sans-serif;
   margin-top: 15px;
   margin-right: 10px;
   transform: translateY(-50%);

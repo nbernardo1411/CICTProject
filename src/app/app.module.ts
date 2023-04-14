@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'schedule',
     component: ScheduleComponent
+  },
+  {
+    path: 'attendance',
+    component: AttendanceComponent
   }
 ];
 

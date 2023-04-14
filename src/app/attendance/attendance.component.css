@@ -6,19 +6,18 @@ table {
   th, td {
   text-align: left;
   padding: 8px;
-  border-bottom: 1px solid #ddd;
   max-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px; /* Change this to your desired max-width */
+  max-width: 150px; /* Change this to your desired max-width */
+  box-shadow: 0px 2px 4px black;
   
   }
   
   th {
   background-color: orange;
-  color: white;
-  font-family: montserrat;
+  color: black;
   }
   
   .action-buttons {
@@ -52,7 +51,7 @@ table {
     margin: 0;
     font-size: 30px;
     color: #333;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: monsterrat;
   }
   .nav{
     display: flex;
@@ -91,17 +90,7 @@ table {
   border: none;
   
   }
-  
-  .form input[type="text"] {
-  padding: 5px;
-  border-radius: 50px;
-  border: none;
-  margin-right: 10px;
-  width: 240px;
-  box-shadow: 0px 2px 4px black;
-  text-indent: 10px;
-  height: 50px;
-  }
+
   
   
   .form button {
@@ -112,7 +101,7 @@ table {
   cursor: pointer;
   border-radius: 50px;
   height: 50px;
-  width: 200px;
+  width: 220px;
   text-indent: 10px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
@@ -146,7 +135,7 @@ table {
     margin: 0;
   }
   
-  .addFaculty {
+  .addAttendance {
     padding: 5px 10px;
     background-color: orange;
     color: white;
@@ -156,7 +145,7 @@ table {
     margin-bottom: 10px;
     }
   
-    .addFaculty:hover {
+    .addAttendance:hover {
     background-color: rgb(255, 230, 0);
     }
     .box {
@@ -176,19 +165,29 @@ table {
     }
   
   .box .Sect{
+    width: 860px;
+    left: 420px;
+    transform: translateX(-50%);
     position: relative;
-    right: 355px;
     margin: 5px;
     box-sizing: border-box;
     border: none;
   }
+
+  .Sect button{
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px black;
+  }
   
   .Section-Sort{
+    left: 70px;
+    transform: translateX(-50%);
+    margin: 5px;
     height: 30px;
-    width: 150px;
+    width: 125px;
     position: relative;
-    background-color: orange;
-    color: white;
+    background-color: white;
+    color: black;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
@@ -197,7 +196,7 @@ table {
   }
   .Sort-List{
     height: auto;
-    width: 150px;
+    width: 125px;
     background-color: white;
     position: absolute;
     left: 0;
@@ -213,11 +212,76 @@ table {
     font-family: Arial, Helvetica, sans-serif;
   }
   .Sort-List a:hover{
+    border-radius: 10px;
     background-color: orange;
     color: white;
   }
   .Section-Sort:hover .Sort-List{
     display: block;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     box-shadow: 0px 2px 4px black;
   }
-  
+
+  .box .Sect .Semester-Sort{
+    left: 1px;
+    position: relative;
+    right: 355px;
+    margin: 5px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px black;
+  }
+
+  .Semester-Sort{
+    height: 30px;
+    width: 200px;
+    position: relative;
+    background-color: white;
+    color: black;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+  }
+  .Semester-List{
+    height: auto;
+    width: 200px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    display: none;
+  }
+  .Semester-List a{
+    color: black;
+    display: block;
+    text-align: left;
+    padding-left: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .Semester-List a:hover{
+    border-radius: 10px;
+    background-color: orange;
+    color: white;
+  }
+  .Semester-Sort:hover .Semester-List{
+    display: block;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 2px 4px black;
+  }
+  .box input[type="text"] {
+    padding: 5px;
+    border-radius: 50px;
+    border: none;
+    margin-left: 273px;
+    width: 240px;
+    box-shadow: 0px 2px 4px black;
+    text-indent: 10px;
+    height: 30px;
+
+    }

@@ -7,8 +7,11 @@ interface SideBarToggle {
 
 interface Attendance {
   id: number;
+  date: number;
   name: string;
-  email: string;
+  faculty: string;
+  section: string;
+  room: string;
 }
 
 @Component({
@@ -18,8 +21,11 @@ interface Attendance {
 })
 export class AttendanceComponent {
   id: number | undefined;
+  date: number | undefined;
   name: string | undefined;
-  email: string | undefined;
+  faculty: string | undefined;
+  section: string | undefined;
+  room: string | undefined;
   isSideBarCollapsed = false;
   screenWidth = 0;
   onToggleSideBar(): void {
@@ -34,8 +40,11 @@ export class AttendanceComponent {
   addAttendance() {
     const newAttendance: Attendance = {
       id: 0,
+      date: 0,
       name: '',
-      email: ''
+      faculty: '',
+      section: '',
+      room: '',
     };
     this.editingAttendance = newAttendance;
     this.attendanceList.push(newAttendance);
@@ -44,28 +53,40 @@ export class AttendanceComponent {
   editAttendance(attendance: Attendance) {
     this.editingAttendance = attendance; // set the faculty being edited
     this.id = attendance.id;
+    this.date = attendance.date;
     this.name = attendance.name;
-    this.email = attendance.email;
+    this.faculty = attendance.faculty;
+    this.section = attendance.section;
+    this.room = attendance.room;
   }
 
   saveAttendance() {
     if (this.editingAttendance) {
       // update the faculty being edited with the new values
       this.editingAttendance.id = this.id!;
+      this.editingAttendance.date = this.date!;
       this.editingAttendance.name = this.name!;
-      this.editingAttendance.email = this.email!;
+      this.editingAttendance.faculty = this.faculty!;
+      this.editingAttendance.section = this.section!;
+      this.editingAttendance.room = this.room!;
       this.editingAttendance = null; // reset the editing faculty
       this.id = undefined;
+      this.date = undefined;
       this.name = undefined;
-      this.email = undefined;
+      this.faculty = undefined;
+      this.section = undefined;
+      this.room = undefined;
     }
   }
 
   cancelEdit() {
     this.editingAttendance = null; // reset the editing faculty
     this.id = undefined;
+    this.date = undefined;
     this.name = undefined;
-    this.email = undefined;
+    this.faculty = undefined;
+    this.section = undefined;
+    this.room = undefined;
   }
 
   deleteAttendance(attendance: Attendance) {

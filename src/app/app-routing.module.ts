@@ -10,6 +10,7 @@ import { AccountcreateComponent } from './home/accountcreate/accountcreate.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './admin/component/login/auth.service';
 import { FormsModule } from '@angular/forms';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'inventory', component: InventoryComponent },
   { path: 'schedule', component: ScheduleComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'attendance', component: AttendanceComponent },
 
 ];
 

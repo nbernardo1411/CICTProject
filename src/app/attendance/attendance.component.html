@@ -13,11 +13,10 @@
   </div>
 	<div class="cont">
 		<div class="nav">
-			<a href="faculty" class="active">Faculty</a>
+			<a href="faculty" >Faculty</a>
 			<a href="schedule">Schedule</a>
-            <a href="attendance">Attendance</a>
+            <a href="attendance" class="active">Attendance</a>
       <div class="form">
-        <input type="text" placeholder="Search..." >
         <button (click)="addAttendance()">Add New Attendance
           <img src="assets/add-group.png" alt="Add Attendance">
         </button>
@@ -27,11 +26,68 @@
     
 		<section class ="box"id="attendance">
       <div class="Sect">
-        <button class="Section-Sort">Sort by LastName
+        <button class="Semester-Sort">2022-2023 2nd Semester
+          <div class="Semester-List">
+            <a href="#">2022-2023 2nd Semester</a>
+            <a href="#">2022-2023 2nd Semester</a>
+            <a href="#">2022-2023 2nd Semester</a>
+          </div>
+        </button>
+        <button class="Section-Sort">Sort by Name
           <div class="Sort-List">
-            <a href="#">Sort by FirstName</a>
-            <a href="#">Sort by Email</a>
+            <a href="#">Sort by Date</a>
+            <a href="#">Sort by Room</a>
             <a href="#">Sort by ID No.</a>
           </div>
         </button>
+        <input type="text" placeholder="Search..." >
+        
+        
       </div>
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Faculty</th>
+            <th>Section</th>
+            <th>Room</th>
+            <th>Attendance Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let attendance of attendanceList; let i=index">
+            <tr *ngIf="editingAttendance === attendance; else showAttendanceData">
+              <td>{{i + 1}}</td>
+              <td><input type="text" [(ngModel)]="id" maxlength="6"></td>
+              <td><input type="text" [(ngModel)]="date" maxlength="30"></td>
+              <td><input type="text" [(ngModel)]="name" maxlength="30"></td>
+              <td><input type="text" [(ngModel)]="faculty" maxlength="30"></td>
+              <td><input type="text" [(ngModel)]="section" maxlength="30"></td>
+              <td><input type="text" [(ngModel)]="room" maxlength="30"></td>
+              <td class="action-buttons">
+                <button class="save" (click)="saveAttendance()">Save</button>
+                <button class="cancel" (click)="cancelEdit()">Cancel</button>
+              </td>
+            </tr>
+            <ng-template #showAttendanceData>
+              <tr>
+                <td>{{i + 1}}</td>
+                <td>{{attendance.id}}</td>
+                <td>{{attendance.date}}</td>
+                <td>{{attendance.name}}</td>
+                <td>{{attendance.faculty}}</td>
+                <td>{{attendance.section}}</td>
+                <td>{{attendance.room}}</td>
+                <td class="action-buttons">
+                  <button class="edit" (click)="editAttendance(attendance)">Edit</button>
+                  <button class="delete" (click)="deleteAttendance(attendance)">Delete</button>
+                </td>
+              </tr>
+            </ng-template>
+          </ng-container>
+        </tbody>
+      </table>
+      
+    </section>

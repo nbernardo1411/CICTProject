@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './admin/component/login/auth.service';
 import { LoginComponent } from './admin/component/login/login.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 
 const routes: Routes = [
@@ -59,7 +60,8 @@ const routes: Routes = [
     SidebarComponent,
     DashboardComponent,
     CalendarComponent,
-    AttendanceChartComponent
+    AttendanceChartComponent,
+    AttendanceComponent
   ],
   imports: [
     BrowserModule,

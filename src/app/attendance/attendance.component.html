@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Faculty and Schedule Management</title>
+	<link rel="stylesheet" href="attendance.component.css">
+</head>
+
+<body>
+  <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
+  <div class="CICT-Head2">
+    <h3>Faculty and Schedule Management</h3>
+  </div>
+	<div class="cont">
+		<div class="nav">
+			<a href="faculty" class="active">Faculty</a>
+			<a href="schedule">Schedule</a>
+            <a href="attendance">Attendance</a>
+      <div class="form">
+        <input type="text" placeholder="Search..." >
+        <button (click)="addAttendance()">Add New Attendance
+          <img src="assets/add-group.png" alt="Add Attendance">
+        </button>
+      </div>
+			
+		</div>
+    
+		<section class ="box"id="attendance">
+      <div class="Sect">
+        <button class="Section-Sort">Sort by LastName
+          <div class="Sort-List">
+            <a href="#">Sort by FirstName</a>
+            <a href="#">Sort by Email</a>
+            <a href="#">Sort by ID No.</a>
+          </div>
+        </button>
+      </div>

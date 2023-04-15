@@ -6,8 +6,7 @@ interface SideBarToggle {
 }
 
 interface Attendance {
-  id: number;
-  date: number;
+  date: Date;
   name: string;
   faculty: string;
   section: string;
@@ -20,8 +19,7 @@ interface Attendance {
   styleUrls: ['./attendance.component.css']
 })
 export class AttendanceComponent {
-  id: number | undefined;
-  date: number | undefined;
+  date: Date;
   name: string | undefined;
   faculty: string | undefined;
   section: string | undefined;
@@ -37,22 +35,33 @@ export class AttendanceComponent {
 
   ];
 
+  constructor() {
+    this.date = new Date();
+
+  }
+
+  public formatDate(date: Date) {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return date.toLocaleDateString(undefined);
+  }
+  
+
+  
   addAttendance() {
     const newAttendance: Attendance = {
-      id: 0,
-      date: 0,
+      date: new Date(),
       name: '',
       faculty: '',
       section: '',
-      room: '',
+      room: ''
     };
     this.editingAttendance = newAttendance;
     this.attendanceList.push(newAttendance);
   }
+  
 
   editAttendance(attendance: Attendance) {
     this.editingAttendance = attendance; // set the faculty being edited
-    this.id = attendance.id;
     this.date = attendance.date;
     this.name = attendance.name;
     this.faculty = attendance.faculty;
@@ -63,15 +72,13 @@ export class AttendanceComponent {
   saveAttendance() {
     if (this.editingAttendance) {
       // update the faculty being edited with the new values
-      this.editingAttendance.id = this.id!;
       this.editingAttendance.date = this.date!;
       this.editingAttendance.name = this.name!;
       this.editingAttendance.faculty = this.faculty!;
       this.editingAttendance.section = this.section!;
       this.editingAttendance.room = this.room!;
       this.editingAttendance = null; // reset the editing faculty
-      this.id = undefined;
-      this.date = undefined;
+      this.date = new Date();
       this.name = undefined;
       this.faculty = undefined;
       this.section = undefined;
@@ -81,8 +88,7 @@ export class AttendanceComponent {
 
   cancelEdit() {
     this.editingAttendance = null; // reset the editing faculty
-    this.id = undefined;
-    this.date = undefined;
+    this.date = new Date();
     this.name = undefined;
     this.faculty = undefined;
     this.section = undefined;

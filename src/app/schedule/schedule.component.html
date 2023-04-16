@@ -15,12 +15,14 @@
         <a href="schedule" class="active">Schedule</a>
         <a href="attendance">Attendance</a>
 
-<div class="container">
-  <h1>Faculty Schedule</h1>
-  <label class="assign-schedule" for="facultyName">Faculty Name:</label>
-  <input type="text" id="facultyName" [(ngModel)]="facultyName">
-  <button class="orange-button" (click)="assignSchedule();">Assign Schedule</button>
-  <table #scheduleTable>
+        <div class="container">
+          <h1>Faculty Schedule</h1>
+          <label class="assign-schedule" for="facultyName">Faculty Name:</label>
+          <select id="facultyName" [(ngModel)]="facultyName">
+            <option *ngFor="let faculty of facultyList" [value]="faculty">{{ faculty }}</option>
+          </select>
+          <button class="orange-button" (click)="assignSchedule()">Assign Schedule</button>
+          <table #scheduleTable>
     <thead>
       <tr>
         <th>Time</th>

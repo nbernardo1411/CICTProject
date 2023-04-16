@@ -15,16 +15,15 @@ import { AttendanceComponent } from './attendance/attendance.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'faculty', component: FacultyComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
+  { path: 'faculty', component: FacultyComponent , canActivate: [AuthService] },
   { path: 'home', component: HomeComponent },
   { path: 'accountcreate', component: AccountcreateComponent },
-  { path: 'inventory', component: InventoryComponent },
-  { path: 'schedule', component: ScheduleComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'attendance', component: AttendanceComponent },
-
+  { path: 'inventory', component: InventoryComponent , canActivate: [AuthService] },
+  { path: 'schedule', component: ScheduleComponent, canActivate: [AuthService] },
+  { path: 'attendance', component: AttendanceComponent , canActivate: [AuthService] },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),FormsModule],

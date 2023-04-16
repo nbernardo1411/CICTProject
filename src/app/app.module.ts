@@ -77,7 +77,11 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot([
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
+    ])
 
 
   ],

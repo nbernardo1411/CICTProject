@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>My Webpage</title>
-    
+
   </head>
   <body>
     <div class="CICT-Head">
@@ -14,7 +14,7 @@
       <img src="assets/account.png" class="CICT-Account">
       <img src="assets/down-arrow.png" class="CICT-Arrow">
     </div>
-    
+
     <div class="sidebar" [ngClass]="collapsed ? 'sidebar-collapsed': ''">
       <div class="logo-container">
         <button class="logo" (click)="toggleCollapse()" style="background-color: transparent;">
@@ -30,7 +30,7 @@
               <span class="sidebar-link-text" *ngIf="collapsed">Dashboard</span>
             </a>
           </li>
-    
+
           <li class="sidebar-nav-item">
             <a routerLink="/faculty" class="sidebar-nav-link">
               <img class="sidebar-link-icon" src="/assets/calendar.png">
@@ -56,15 +56,15 @@
           </a>
         </li>
         <li class="sidebar-nav-item">
-          <a routerLink="/login" class="sidebar-nav-link" >
+          <a class="sidebar-nav-link" >
             <img class="sidebar-link-icon" src="/assets/logout.png">
-            <span class="sidebar-link-text" *ngIf="collapsed">Logout</span>
+            <span class="sidebar-link-text" *ngIf="collapsed" (click)="onLogout()">Logout</span>
           </a>
         </li>
       </ul>
     </div>
-    
 
-    
+
+
   </body>
 </html>

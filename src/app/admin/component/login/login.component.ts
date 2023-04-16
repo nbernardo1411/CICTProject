@@ -27,4 +27,7 @@ export class LoginComponent implements OnInit {
       this.errorMessage = loginResult;
     }
   }
+  onLogout(): void {
+    this.authService.logout();
+  }
 }

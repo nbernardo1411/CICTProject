@@ -12,7 +12,7 @@ export class AuthService implements CanActivate {
 
   canActivate(): boolean {
     const userRole = localStorage.getItem('userRole');
-    if (this.isLoggedIn() && userRole === 'admin') {
+    if (userRole === 'admin') {
       return true;
     } else {
       this.router.navigate(['/login']);
@@ -23,12 +23,10 @@ export class AuthService implements CanActivate {
   public login(username: string, password: string): string | null {
     if (username === this.defaultUsername && password === this.defaultPassword) {
       localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('userRole', 'admin'); // set user role to 'admin'
       return null;
     }
     return 'Incorrect username or password';
   }
-
 
   public isLoggedIn(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true';

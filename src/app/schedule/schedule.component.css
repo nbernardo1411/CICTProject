@@ -1,3 +1,4 @@
+
 nav ul {
   display: flex;
   list-style: none;
@@ -70,246 +71,105 @@ font-family: Arial, Helvetica, sans-serif;
   color: white;
   }
 
-  .form {
-    top: 10%;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    right: 20px;
+  .container {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    position: relative;
+    max-width: 1200px;
+    margin-left: 80px;
+
+  }
+  h1 {
+    margin-top: 0;
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  th {
+    background-color: #f9f9f9;
+  }
+  td {
+    position: relative;
+  }
+  td:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+  }
+  .schedule-item {
     position: absolute;
-    border: none;
-  }
-
-  .form input[type="Stext"] {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffebcc;
+    border-radius: 5px;
     padding: 5px;
-    border-radius: 50px;
-    border: none;
-    margin-right: 10px;
-    width: 240px;
-    box-shadow: 0px 2px 4px black;
-    text-indent: 10px;
-    height: 50px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  }
+  .schedule-item-subject {
+    font-weight: bold;
+  }
+  .schedule-item-room {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .assign-schedule {
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 20px;
   }
 
-  .form button {
-    padding: 5px 10px;
+
+  .orange-button{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
     background-color: orange;
     color: white;
     border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 50px;
-    height: 50px;
-    width: 200px;
-    text-indent: 10px;
-    text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .form button:hover {
-  background-color: rgb(255, 230, 0);
-  }
-
-  #add-form {
-    display: block;
-    position: absolute;
-    top: 50px;
-    right: 350px;
-    width: 500px;
-    height: 550px;
-    background-color: #fff;
-    padding: 20px;
-    border: none;
-    box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.3);
-  }
-  #show-form:checked ~ #add-form {
-    display: block;
-    background-color: #fff;
-  }
-  .schedule-list {
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 50%;
-    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  th,
-  td {
-    text-align: left;
-    padding: 8px;
-  }
-
-  th {
-    background-color: #4CAF50;
-    color: white;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-
-  .schedule-container {
-    display: flex;
-    box-sizing: border-box;
-    width: 800px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px black;
-    resize: both;
-    overflow: auto;
-    max-height: 500px;
-    margin: auto;
-  }
-
-  .schedule {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .schedule th,
-  .schedule td {
-    border: 1px solid black;
-    padding: 5px;
-  }
-
-  .schedule th {
-    background-color: gray;
-    color: white;
-  }
-
-  .schedule td:last-child {
-    text-align: center;
-  }
-
-  .schedule button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-  }
-
-  .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 900px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px black;
-    overflow: auto;
-    max-height: 650px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-  }
-
-  .mbox {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .mbox label {
-    width: 100px;
-  }
-
-.mbox input {
-    width: 300px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin-left: 10px;
-    box-shadow: 0px 0px 10px black;
-  }
-
-
-  .newbox h1{
-    position: relative;
-    top: 20px;
-    right: 170px;
-    transform: translateY(-50%);
-    margin: 0;
-    font-size: 20px;
-    color: #333;
+    margin-top: 10px;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
   }
 
-.butEvent button{
-  position: relative;
-  background-color: orange;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 50px;
-  height: 50px;
-  width: 100px;
-  left: 120px;
-  text-indent: 25px;
-  text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-top: 15px;
-  margin-right: 10px;
-  transform: translateY(-50%);
-}
+  .orange-button:hover {
+    background-color: #f1a385;
+  }
+  .ora-button{
+    position: absolute;
+    left: 0;
+    margin-right: 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+  }
 
-#calendar-container {
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
-}
-
-.calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.calendar-header a {
-  cursor: pointer;
-}
-
-.weekdays {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-.weekdays div {
-  width: calc(100% / 7);
-  text-align: center;
-  font-weight: bold;
-}
-
-.days {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.day {
-  width: calc(100% / 7);
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-}
-
-.today {
-  background-color: #4CAF50;
-  color: #fff;
-}
-
-.other-month {
-  color: #bbb;
-}
-
+  .ora-button:hover {
+    background-color: #f1a385;
+  }

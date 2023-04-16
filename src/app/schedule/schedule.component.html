@@ -14,91 +14,37 @@
         <a href="faculty">Faculty</a>
         <a href="schedule" class="active">Schedule</a>
         <a href="attendance">Attendance</a>
-        <div class="form" id="form">
-          <input type="Stext" placeholder="Search...">
-          <button type="button" (click)="showForm = !showForm">
-            Add a Schedule
-          <img src="assets/add-event.png" alt="Add Event">
-          </button>
-        </div>
-      </div>
-          <div id="add-form" *ngIf="showForm">
-            <form>
-              <div class="newbox">
-                <h1>New Schedule</h1>
-              </div><br>
-              <div class="mbox">
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" [(ngModel)]="newDate" class="mid" style="resize: horizontal;">
-              </div><br>
-              <div class="mbox">
-                <label for="time">Time:</label>
-                <input type="time" id="time" name="time" [(ngModel)]="newTime" class="mid" style="resize: horizontal;">
-              </div><br>
-              <div class="mbox">
-                <label for="subject">Subject:</label>
-                <input type="subject" id="subject" name="subject" [(ngModel)]="newSubject" style="resize: horizontal;">
-              </div><br>
-              <div class="mbox">
-                <label for="description">Description:</label>
-                <input type="description" id="description" name="description" [(ngModel)]="newDescription" style="resize: horizontal;">
-              </div><br>
-              <div class="mbox">
-                <label for="section">Section:</label>
-                <input type="section" id="section" name="section" [(ngModel)]="newSection" style="resize: horizontal;">
-              </div><br>
-              <div class="mbox">
-                <label for="location">Location:</label>
-                <input type="location" id="location" name="location" [(ngModel)]="newLocation" style="resize: horizontal;">
-              </div><br>
-              <div class="mbox">
-                <label for="semester">SEMESTER / S.Y:</label>
-                <input type="semester" id="semester" name="semester" [(ngModel)]="newSemester" style="resize: horizontal;">
-              </div><br>
-              <div class="butEvent">
-              <button value="Add Event" (click)="addEvent(newDate, newTime, newSubject, newDescription, newSection, newLocation, newSemester)">
-                Save</button>
-                <button (click)="showForm = !showForm">Cancel
-                </button>
-              </div>
-            </form>
+
+<div class="container">
+  <h1>Faculty Schedule</h1>
+  <label class="assign-schedule" for="facultyName">Faculty Name:</label>
+  <input type="text" id="facultyName" [(ngModel)]="facultyName">
+  <button class="orange-button" (click)="assignSchedule();">Assign Schedule</button>
+  <table #scheduleTable>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let timeSlot of timeSlots">
+        <td>{{ timeSlot }}</td>
+        <td *ngFor="let day of days" (click)="editSchedule(timeSlot, day, facultyName)">
+          <div class="schedule-item" *ngIf="schedule[day][timeSlot]">
+            <div class="schedule-item-subject">{{ schedule[day][timeSlot].subject }}</div>
+            <div class="schedule-item-room">{{ schedule[day][timeSlot].room }}</div>
           </div>
+        </td>
+      </tr>
+    </tbody>
+    <button class="ora-button" (click)="saveAsImage()">Save as Image</button>
+    <button class="orange-button" (click)="clearTable()">Clear Table</button>
+  </table>
 
-    </div>
-    <form class="box">
-      <br><br> <table class="schedule">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Description</th>
-          <th>Section</th>
-          <th>Location</th>
-          <th>Semester</th>
-          <th>Action</th>
-
-        </tr>
-      </thead>
-      <tbody>
-
-
-        <tr *ngFor="let event of events; let i = index">
-          <td>{{ event.date }}</td>
-          <td>{{ event.time }}</td>
-          <td>{{ event.description }}</td>
-          <td>{{ event.section }}</td>
-          <td>{{ event.location }}</td>
-          <td>{{ event.semester }}</td>
-          <td>
-            <button (click)="deleteEvent(i)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </form>
-  </body>
-  <script>
-    this.daysContainerRef.nativeElement.querySelector('.days').appendChild(box);
-  </script>
-
-</html>

@@ -23,6 +23,7 @@
     "@fullcalendar/angular": "^6.1.5",
     "@swimlane/ngx-charts": "^20.1.2",
     "chart.js": "^4.2.1",
+    "html2canvas": "^1.4.1",
     "ng2-charts": "^4.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

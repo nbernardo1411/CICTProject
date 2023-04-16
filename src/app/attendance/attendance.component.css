@@ -1,7 +1,7 @@
 table {
     border-collapse: collapse;
     width: 100%;
-  
+
   }
   th, td {
   text-align: center;
@@ -13,14 +13,14 @@ table {
   text-overflow: ellipsis;
   max-width: 120px; /* Change this to your desired max-width */
   box-shadow: 0px 2px 4px black;
-  
+
   }
-  
+
   th {
   background-color: orange;
   color: rgb(255, 255, 255);
   }
-  
+
   .action-buttons {
   display: flex;
   justify-content: space-around;
@@ -39,11 +39,11 @@ table {
   cursor: pointer;
   border-radius: 3px;
   }
-  
+
   .action-buttons button:hover {
   background-color: orange;
   }
-  
+
   .CICT-Head2 h3{
     position: relative;
     top: 20px;
@@ -52,13 +52,13 @@ table {
     margin: 0;
     font-size: 30px;
     color: #333;
-    font-family: monsterrat;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .nav{
     display: flex;
     width: 1100px;
   }
-  
+
   .nav a {
   text-align: center;
   color: #000000;
@@ -68,19 +68,19 @@ table {
   margin: 10px;
   width: 100px;
   height: 40px;
-  font-family: montserrat;
-  
+  font-family: Arial, Helvetica, sans-serif;
+
   }
   .nav a:hover{
     background-color: rgb(255, 223, 164);
     color: white;
   }
-  
+
   .nav a.active {
   background-color: orange;
   color: white;
   }
-  
+
   .form {
   top: 10%;
   height: 80px;
@@ -89,11 +89,11 @@ table {
   right: 20px;
   position: absolute;
   border: none;
-  
+
   }
 
-  
-  
+
+
   .form button {
   padding: 5px 10px;
   background-color: orange;
@@ -107,16 +107,16 @@ table {
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   }
-  
+
   .form button:hover {
   background-color: rgb(255, 230, 0);
   }
-  
+
   .add-schedule {
   display: flex;
   align-items: center;
   }
-  
+
   .add-schedule button {
   padding: 5px 10px;
   background-color: orange;
@@ -125,17 +125,17 @@ table {
   cursor: pointer;
   border-radius: 3px;
   }
-  
+
   .add-schedule button:hover {
   background-color: rgb(255, 230, 0);
   }
-  
-  
-  
+
+
+
   h2 {
     margin: 0;
   }
-  
+
   .addAttendance {
     padding: 5px 10px;
     background-color: orange;
@@ -145,7 +145,7 @@ table {
     border-radius: 3px;
     margin-bottom: 10px;
     }
-  
+
     .addAttendance:hover {
     background-color: rgb(255, 230, 0);
     }
@@ -164,9 +164,9 @@ table {
       max-height: 500px;
       margin: 0 auto;
       margin-bottom: 10px;
-      
+
     }
-  
+
   .box .Sect{
     width: 860px;
     max-width: 1500px;
@@ -182,7 +182,7 @@ table {
     border-radius: 10px;
     box-shadow: 0px 2px 5px black;
   }
-  
+
   .Section-Sort{
     left: 70px;
     transform: translateX(-50%);

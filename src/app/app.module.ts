@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './admin/component/login/auth.service';
 import { LoginComponent } from './admin/component/login/login.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import html2canvas from 'html2canvas';
 
 
 const routes: Routes = [
@@ -77,7 +78,7 @@ const routes: Routes = [
     MatNativeDateModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    
+
 
   ],
   providers: [AuthService], // add AuthService to the providers array

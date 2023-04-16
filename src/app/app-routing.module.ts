@@ -14,7 +14,7 @@ import { AttendanceComponent } from './attendance/attendance.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { path: 'admin/login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
   { path: 'faculty', component: FacultyComponent , canActivate: [AuthService] },
   { path: 'home', component: HomeComponent },

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="dashboard.component.css">
     <head>
@@ -76,16 +76,22 @@
         <h2>Key Logs</h2>
         <table>
           <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Name</th>
+            <th>Key Name</th>
+            <th>Room</th>
+            <th>Borrowed By</th>
+            <th>Borrowed At</th>
           </tr>
-          <tr>
-            <td>No Data</td>
-            <td>No Data</td>
-            <td>No Data</td>
+          <tbody>
+            <tr *ngFor="let key of keys">
+              <ng-container *ngIf="key.borrowed">
+                <td>{{ key.name }}</td>
+                <td>{{ key.room }}</td>
+                <td>{{ key.borrowedBy }}</td>
+                <td>{{ key.borrowedAt }}</td>
+              </ng-container>
+            </tr>
+          </tbody>
 
-          </tr>
         </table>
       </div>
 

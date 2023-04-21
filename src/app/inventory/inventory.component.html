@@ -37,18 +37,19 @@ Total number of keys <img src="assets/key (1).png" style="width: 15px; height: 1
   </thead>
   <tbody>
     <tr *ngFor="let key of keys">
-      <td>{{ key.name }}</td>
-      <td>{{ key.room }}</td>
-      <td [ngClass]="{ 'borrowed': key.borrowed }">{{ key.borrowed ? 'Borrowed' : 'Available' }}</td>
-      <td>{{ key.borrowedBy }}</td>
-      <td>{{ key.borrowedAt }}</td>
+      <td>{{ key?.name }}</td>
+      <td>{{ key?.room }}</td>
+      <td [ngClass]="{ 'borrowed': key?.borrowed }">{{ key?.borrowed ? 'Borrowed' : 'Available' }}</td>
+      <td>{{ key?.borrowedBy }}</td>
+      <td>{{ key?.borrowedAt }}</td>
       <td>
-        <button *ngIf="!key.borrowed" class="on-button"(click)="onBorrow(key)">Borrow</button>
-        <button *ngIf="key.borrowed" class="oni-button"(click)="onReturn(key)">Return</button>
+        <button *ngIf="!key?.borrowed" class="on-button"(click)="onBorrow(key)">Borrow</button>
+        <button *ngIf="key?.borrowed" class="oni-button"(click)="onReturn(key)">Return</button>
         <br><br>
         <button (click)="onDelete(key)" class="delete-button">Delete</button>
       </td>
-    </tr>
+</tr>
+
   </tbody>
 </table>
 

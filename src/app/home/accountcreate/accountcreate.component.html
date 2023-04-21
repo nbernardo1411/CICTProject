@@ -29,31 +29,33 @@
         </div>
       </div>
         <div class="right">
-          <h5>Create an Account</h5>
-          <div class="inputs">
-            <input type="text" id="name" placeholder="Fullname" required>
-            <br>
-            <input type="email" id="email" placeholder="Email Adress " required>
-            <br><br>
-            <label for="type">Type:</label>
-            <select name="type" id="type" class="my-select">
-              <option value="attendancechecker">Attendance Checker</option>
-              <option value="faculty">Faculty</option>
-            </select>
-            <input type="password" id="password" placeholder="password" required>
-              <br>
-              <input type="password" id="conpassword" placeholder="confirm password" required>
-              <br>
-          </div>
-          <br><br>
-          <div class="remember-me--forget-password">
-            <!-- Angular -->
-            <label></label>
-          </div>
-          <br><div class="butt">
-          <button>Register</button></div>
+          <<!-- accountcreate.component.html -->
+<h1>Create Account</h1>
+
+<form (ngSubmit)="onSubmit(accountCreateForm)" #accountCreateForm="ngForm">
+  <div class="inputs">
+    <input type="text" id="name" placeholder="Fullname" required [(ngModel)]="name" name="name">
+    <br>
+    <input type="email" id="email" placeholder="Email Adress " required [(ngModel)]="email" name="email">
+    <br>
+    <input type="text" id="idNumber" placeholder="ID Number" required [(ngModel)]="idNumber" name="idNumber"><br>
+    <label for="type">Type:</label>
+    <select name="type" id="type" class="my-select" [(ngModel)]="type">
+      <option value="attendancechecker">Attendance Checker</option>
+      <option value="faculty">Faculty</option>
+    </select>
+    <input type="password" id="password" placeholder="password" required [(ngModel)]="password" name="password">
+    <br>
+    <input type="password" id="conpassword" placeholder="confirm password" required [(ngModel)]="confirmPassword" name="confirmPassword">
+    <br>
+  </div>
+  <br><br>
+  <br><div class="butt">
+  <button type="submit" [disabled]="!accountCreateForm.form.valid">Register</button></div>
+</form>
+
+
         </div>
       </div>
   </body>
 </html>
-

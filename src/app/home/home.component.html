@@ -20,14 +20,18 @@
           </span>
         </div>
       </div>
-        <div class="right">
-          <h5>Monitoring Key Portal</h5>
-          <h6>Welcome User!</h6>
-          <h2>Log In</h2>
+      <div class="right">
+        <h5>Monitoring Key Portal</h5>
+        <h6>Welcome User!</h6>
+        <h2>Log In</h2>
+        <form (ngSubmit)="onLogin()">
           <div class="inputs">
-            <input type="text" id="username" placeholder="username" required>
+            <input type="email" name="email" [(ngModel)]="email" required>
             <br>
-            <input type="password" id="password" placeholder="password" required>
+            <div class="password-input">
+              <input type="{{ showPassword ? 'text' : 'password' }}" name="password" [(ngModel)]="password" required class="fa fa-eye" (click)="showPassword = !showPassword">
+              <i class="fa fa-eye" (click)="showPassword = !showPassword"></i>
+            </div>
           </div>
           <br><br>
           <div class="remember-me--forget-password">
@@ -36,8 +40,12 @@
           </div>
           <br>
           <div class="butt">
-          <button>Login</button></div>
-        </div>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+            <button type="submit">Login</button>
+          </div>
+        </form>
+
+      </div>
       </div>
   </body>
 </html>

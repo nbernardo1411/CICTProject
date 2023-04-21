@@ -91,3 +91,23 @@ button:hover {background-color: #f88400}
     margin-bottom: 10%;
   }
 }
+.error-message {
+  color: red;
+}
+ .password-input {
+    position: relative;
+  }
+
+  .password-input input {
+    padding-right: 25px;
+  }
+
+  .password-input i {
+    position: absolute;
+    top: 52%;
+    margin-top: 8px;
+    margin-right: 25px;
+    transform: translateY(-50%);
+    right: 5px;
+    cursor: pointer;
+  }

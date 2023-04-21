@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AccountcreateComponent } from './accountcreate.component';
 
 describe('AccountcreateComponent', () => {

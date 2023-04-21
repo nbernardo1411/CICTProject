@@ -154,3 +154,10 @@ table td.borrowed {
   padding: 0px 30px;
   color: white;
 }
+.oni-button {
+  background-color: rgb(0, 255, 106);
+  border-radius: 10px;
+  border-color: transparent;
+  padding: 0px 30px;
+  color: white;
+}

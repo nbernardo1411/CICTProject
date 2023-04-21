@@ -3,7 +3,8 @@ import { Key } from './key.model';
 
 interface SideBarToggle {
   screenWidth: number;
-  collapsed: boolean;}
+  collapsed: boolean;
+}
 
 @Component({
   selector: 'app-inventory',
@@ -15,24 +16,43 @@ export class InventoryComponent {
   newKeyName: string = '';
   newRoomName: string = '';
   borrowedKey: Key | null = null;
+  borrowedKeysCount: number = 0;
+  availableKeysCount: number = 0;
 
   onAddKey() {
     const newKey = new Key(this.newKeyName, this.newRoomName);
     this.keys.push(newKey);
     this.newKeyName = '';
     this.newRoomName = '';
+    this.availableKeysCount++;
   }
 
   onBorrow(key: Key) {
     key.borrowed = true;
     key.borrowedBy = prompt('Enter borrower name:');
     key.borrowedAt = new Date();
+    this.borrowedKeysCount++;
+    this.availableKeysCount--;
   }
 
   onReturn(key: Key) {
     key.borrowed = false;
     key.borrowedBy = '';
-    key.borrowedAt = undefined;;
+    key.borrowedAt = undefined;
+    this.borrowedKeysCount--;
+    this.availableKeysCount++;
+  }
+
+  onDelete(key: Key) {
+    const index = this.keys.indexOf(key);
+    if (index > -1) {
+      this.keys.splice(index, 1);
+      if (key.borrowed) {
+        this.borrowedKeysCount--;
+      } else {
+        this.availableKeysCount--;
+      }
+    }
   }
 
   onViewBorrowedDetails(key: Key) {
@@ -41,12 +61,6 @@ export class InventoryComponent {
 
   closeBorrowedDetails() {
     this.borrowedKey = null;
-  }
-  onDelete(key: Key) {
-    const index = this.keys.indexOf(key);
-    if (index !== -1) {
-      this.keys.splice(index, 1);
-    }
   }
 
   onToggleSideBar(): void {

@@ -1,6 +1,7 @@
 <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
 <h2>Key Inventory</h2>
 
+
 <!-- Add Key form -->
 <div class="container">
 <form (ngSubmit)="onAddKey()">
@@ -11,6 +12,13 @@
   <input type="text" [(ngModel)]="newRoomName" name="roomName" required>
 
   <button type="submit">Add Key</button>
+  <div class="key-count-container">
+
+Total number of keys <img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ keys.length }}
+    <div class ="av">Available<img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ availableKeysCount }}</div>
+    <div class ="ba">Borrowed<img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ borrowedKeysCount }}</div>
+  </div>
+
 </form>
 
 <hr>

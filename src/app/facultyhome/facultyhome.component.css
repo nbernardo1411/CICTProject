@@ -1,65 +1,94 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
 }
-
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 15px;
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
   text-align: center;
+  margin-top: 0;
+  font-size: 24px;
 }
-
-nav {
-  background-color: #555;
-  padding: 10px;
-  margin-bottom: 10px;
+/* Schedule View styles */
+.schedule {
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
-
-nav a {
+.schedule h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+.schedule p {
+  margin: 0;
+}
+/* Record your Attendance styles */
+.attendance {
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.attendance h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+.attendance p {
+  margin: 0;
+}
+/* Key Borrowing styles */
+.borrowing {
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.borrowing h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+.borrowing p {
+  margin: 0;
+}
+/* Buttons */
+.btn {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  background-color: orange;
   color: #fff;
   text-decoration: none;
-  padding: 5px;
-  margin-right: 5px;
-}
-
-.container {
-  margin: 0 auto;
+  border-radius: 5px;
   padding: 10px;
-  max-width: 768px; /* change as needed */
+  margin-top: 10px;
 }
-
-@media (min-width: 769px) {
-  .container {
-    max-width: 960px; /* change as needed */
-  }
-}
-
 h1 {
-  font-size: 2rem;
-  margin: 20px 0;
-  text-align: center;
-}
+      text-align: center;
+      margin-top: 0;
+      height: 50px;
+      border-radius: 10px;
+      font-size: 24px;
+      color: white;
+      background-color: orange;
+    }
+    .btn-small {
+      margin-top: 100px;
+      padding: 5px 10px;
+      font-size: 16px;
+    }
 
-section {
-  background-color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-}
+    .btn-red {
+      background-color: #dc3545;
+    }
 
-.attendance-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.key-list {
-  list-style: none;
-  padding: 0;
-}
 
-.key-list li {
-  margin-bottom: 5px;
-}

@@ -24,7 +24,9 @@ import { LoginComponent } from './admin/component/login/login.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import html2canvas from 'html2canvas';
 import { FacultyhomeComponent } from './facultyhome/facultyhome.component';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { KeyborrowComponent } from './keyborrow/keyborrow.component';
 
 const routes: Routes = [
   {
@@ -68,13 +70,15 @@ const routes: Routes = [
     CalendarComponent,
     AttendanceChartComponent,
     AttendanceComponent,
-    FacultyhomeComponent
+    FacultyhomeComponent,
+    KeyborrowComponent
   ],
   imports: [
     BrowserModule,
     MatFormFieldModule,
     FormsModule, // Add this line
     CommonModule,
+    JwtModule.forRoot({}),
     AppRoutingModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -87,7 +91,11 @@ const routes: Routes = [
 
 
   ],
-  providers: [AuthService], // add AuthService to the providers array
+  providers: [AuthService, JwtHelperService,{
+    provide: JWT_OPTIONS,
+    useValue: JWT_OPTIONS
+  }],
+   // add AuthService to the providers array
   bootstrap: [AppComponent]
 })
 export class AppModule { }

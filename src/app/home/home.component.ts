@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,9 @@ export class HomeComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
-  showPassword: boolean = false; // Add this line to declare the showPassword property
+  showPassword: boolean = false;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient, private authService: AuthService) {}
 
   onLogin() {
     const formData = new FormData();
@@ -23,7 +24,8 @@ export class HomeComponent {
     this.http.post<any>('http://localhost/CICTProject/src/login.php', formData).subscribe(
       response => {
         if (response.success) {
-          // User is authenticated, redirect to dashboard
+          // User is authenticated, log in and redirect to dashboard
+          this.authService.login(response.userId);
           this.router.navigate(['/facultyhome']);
         } else {
           // Authentication failed, display error message
@@ -35,5 +37,9 @@ export class HomeComponent {
         console.error(error);
       }
     );
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 }

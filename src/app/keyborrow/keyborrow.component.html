@@ -1,26 +1,29 @@
-<app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
-<h2>Key Inventory</h2>
+<div class="key-inventory-container">
+  <!-- Key Inventory code here -->
+
+  <header class="app-header">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="facultyhome">
+          <button class="header-button">
+            <img src="assets/home.png" alt="Home">
+          </button>
+        </a>
+      </div>
+      <div class="header-center">
+        <h1 class="app-name">Key Inventory</h1>
+      </div>
+    </div>
+  </header>
+
 
 
 <!-- Add Key form -->
 <div class="container">
-<form (ngSubmit)="onAddKey()">
-  <label for="keyName">Key Name:</label>
-  <input type="text" [(ngModel)]="newKeyName" name="keyName" required>
-
-  <label for="roomName">Room Name:</label>
-  <input type="text" [(ngModel)]="newRoomName" name="roomName" required>
-
-  <button type="submit">Add Key</button>
   <div class="key-count-container">
-
-Total number of keys <img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ keys.length }}
     <div class ="av">Available<img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ availableKeysCount }}</div>
     <div class ="ba">Borrowed<img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ borrowedKeysCount }}</div>
   </div>
-
-</form>
-
 <hr>
 
 <!-- Key list -->
@@ -43,8 +46,9 @@ Total number of keys <img src="assets/key (1).png" style="width: 15px; height: 1
       <td>{{ key?.borrowedBy }}</td>
       <td>{{ key?.borrowedAt }}</td>
       <td>
-
-        <button (click)="onDelete(key)" class="delete-button">Delete</button>
+        <button *ngIf="!key?.borrowed" class="on-button"(click)="onBorrow(key)">Borrow</button>
+        <button *ngIf="key?.borrowed" class="oni-button"(click)="onReturn(key)">Return</button>
+        <br><br>
       </td>
 </tr>
 
@@ -58,5 +62,6 @@ Total number of keys <img src="assets/key (1).png" style="width: 15px; height: 1
     <p>Borrowed At: {{ borrowedKey?.borrowedAt }}</p>
     <button (click)="closeBorrowedDetails()">Close</button>
   </div>
+</div>
 </div>
 </div>

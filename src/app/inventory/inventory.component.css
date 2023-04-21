@@ -141,6 +141,13 @@ table td.borrowed {
   }
 }
 .delete-button {
+  background-color: red;
+  border-radius: 10px;
+  border-color: transparent;
+  padding: 0px 30px;
+  color: white;
+}
+.on-button {
   background-color: orange;
   border-radius: 10px;
   border-color: transparent;

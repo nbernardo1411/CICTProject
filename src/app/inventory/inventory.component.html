@@ -35,8 +35,10 @@
       <td>{{ key.borrowedBy }}</td>
       <td>{{ key.borrowedAt }}</td>
       <td>
+        <button *ngIf="!key.borrowed" class="on-button"(click)="onBorrow(key)">Borrow</button>
+        <button *ngIf="key.borrowed" class="on-button"(click)="onReturn(key)">Return</button>
+        <br><br>
         <button (click)="onDelete(key)" class="delete-button">Delete</button>
-
       </td>
     </tr>
   </tbody>

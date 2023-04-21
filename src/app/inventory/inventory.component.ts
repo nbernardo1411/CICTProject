@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
+import { Key } from './key.model';
+
 interface SideBarToggle {
   screenWidth: number;
   collapsed: boolean;}
-interface InventoryItem {
-  name: string;
-  quantity: number;
-}
-
-interface KeyItem {
-  name: string;
-  available: boolean;
-}
 
 @Component({
   selector: 'app-inventory',
@@ -18,23 +11,45 @@ interface KeyItem {
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent {
-  inventoryItems: InventoryItem[] = [
-    { name: 'Pens', quantity: 10 },
-    { name: 'Pencils', quantity: 15 },
-    { name: 'Notebooks', quantity: 5 }
+  keys: Key[] = [];
+  newKeyName: string = '';
+  newRoomName: string = '';
+  borrowedKey: Key | null = null;
 
-  ];
-  isSideBarCollapsed = false;
-  screenWidth = 0;
+  onAddKey() {
+    const newKey = new Key(this.newKeyName, this.newRoomName);
+    this.keys.push(newKey);
+    this.newKeyName = '';
+    this.newRoomName = '';
+  }
+
+  onBorrow(key: Key) {
+    key.borrowed = true;
+    key.borrowedBy = prompt('Enter borrower name:');
+    key.borrowedAt = new Date();
+  }
+
+  onReturn(key: Key) {
+    key.borrowed = false;
+    key.borrowedBy = '';
+    key.borrowedAt = undefined;;
+  }
+
+  onViewBorrowedDetails(key: Key) {
+    this.borrowedKey = key;
+  }
+
+  closeBorrowedDetails() {
+    this.borrowedKey = null;
+  }
+  onDelete(key: Key) {
+    const index = this.keys.indexOf(key);
+    if (index !== -1) {
+      this.keys.splice(index, 1);
+    }
+  }
 
   onToggleSideBar(): void {
     // Add implementation for the method here
   }
-  keyItems: KeyItem[] = [
-    { name: 'Office Keys', available: true },
-    { name: 'Locker Keys', available: true },
-    { name: 'File Cabinet Keys', available: false }
-
-  ];
-
 }

@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+nav {
+  background-color: #555;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 768px; /* change as needed */
+}
+
+@media (min-width: 769px) {
+  .container {
+    max-width: 960px; /* change as needed */
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 20px 0;
+  text-align: center;
+}
+
+section {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.attendance-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.key-list {
+  list-style: none;
+  padding: 0;
+}
+
+.key-list li {
+  margin-bottom: 5px;
+}

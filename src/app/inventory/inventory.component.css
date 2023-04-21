@@ -1,0 +1,148 @@
+.container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 800px; /* adjust as needed */
+  margin: 0 auto; /* center horizontally */
+}
+
+@media (max-width: 768px) { /* adjust breakpoint as needed */
+  .container {
+    max-width: 100%;
+    padding: 5px;
+  }
+}
+
+/* Style the form */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+form label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 0.5rem;
+  background-color: orange;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+table th, table td {
+  padding: 0.5rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background-color: orange;
+  color: #fff;
+}
+
+table td.borrowed {
+  background-color: #ffc107;
+}
+
+/* Style the modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.modal button {
+  padding: 0.5rem;
+  background-color: orange;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  table th, table td {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  table th {
+    font-size: 1rem;
+  }
+
+  form input, form button {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  .modal h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal p {
+    font-size: 1rem;
+  }
+
+  .modal button {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+}
+.delete-button {
+  background-color: orange;
+  border-radius: 10px;
+  border-color: transparent;
+  padding: 0px 30px;
+}

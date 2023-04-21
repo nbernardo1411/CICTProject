@@ -23,6 +23,7 @@ import { AuthService } from './admin/component/login/auth.service';
 import { LoginComponent } from './admin/component/login/login.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import html2canvas from 'html2canvas';
+import { FacultyhomeComponent } from './facultyhome/facultyhome.component';
 
 
 const routes: Routes = [
@@ -66,7 +67,8 @@ const routes: Routes = [
     DashboardComponent,
     CalendarComponent,
     AttendanceChartComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    FacultyhomeComponent
   ],
   imports: [
     BrowserModule,

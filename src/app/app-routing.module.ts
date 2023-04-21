@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './admin/component/login/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { FacultyhomeComponent } from './facultyhome/facultyhome.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
   { path: 'faculty', component: FacultyComponent , canActivate: [AuthService] },
   { path: 'home', component: HomeComponent },
+  { path: 'facultyhome', component: FacultyhomeComponent },
   { path: 'accountcreate', component: AccountcreateComponent },
   { path: 'inventory', component: InventoryComponent , canActivate: [AuthService] },
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthService] },

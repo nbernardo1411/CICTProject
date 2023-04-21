@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Key } from './key.model';
 
@@ -18,6 +19,8 @@ export class InventoryComponent {
   borrowedKey: Key | null = null;
   borrowedKeysCount: number = 0;
   availableKeysCount: number = 0;
+
+  constructor(private http: HttpClient) {}
 
   onAddKey() {
     const newKey = new Key(this.newKeyName, this.newRoomName);
@@ -64,6 +67,9 @@ export class InventoryComponent {
   }
 
   onToggleSideBar(): void {
-    // Add implementation for the method here
+    this.http.get<Key[]>('http://localhost/index.php')
+      .subscribe(keys => {
+        this.keys = keys;
+      });
   }
 }

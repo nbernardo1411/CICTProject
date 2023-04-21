@@ -37,8 +37,8 @@ Total number of keys <img src="assets/key (1).png" style="width: 15px; height: 1
   </thead>
   <tbody>
     <tr *ngFor="let key of keys">
-      <td>{{ key.keyName }}</td>
-      <td>{{ key.roomName }}</td>
+      <td>{{ key.name }}</td>
+      <td>{{ key.room }}</td>
       <td [ngClass]="{ 'borrowed': key.borrowed }">{{ key.borrowed ? 'Borrowed' : 'Available' }}</td>
       <td>{{ key.borrowedBy }}</td>
       <td>{{ key.borrowedAt }}</td>
@@ -55,7 +55,7 @@ Total number of keys <img src="assets/key (1).png" style="width: 15px; height: 1
 <!-- Borrowed Key details modal -->
 <div class="modal" [class.active]="borrowedKey">
   <div class="modal-content">
-    <h3>{{ borrowedKey?.keyName }} - Borrowed By {{ borrowedKey?.borrowedBy }}</h3>
+    <h3>{{ borrowedKey?.name }} - Borrowed By {{ borrowedKey?.borrowedBy }}</h3>
     <p>Borrowed At: {{ borrowedKey?.borrowedAt }}</p>
     <button (click)="closeBorrowedDetails()">Close</button>
   </div>

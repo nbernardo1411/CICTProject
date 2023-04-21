@@ -1,6 +1,6 @@
-$servername = "localhost";
-$username = "admin";
-$password = "password";
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
 $dbname = "cict_scheduling_key_inv";
 
 // Create connection

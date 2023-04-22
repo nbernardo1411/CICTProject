@@ -15,7 +15,9 @@ export interface ScheduleData {
   friday: string;
   saturday: string;
   sunday: string;
+  [key: string]: string;
 }
+
 
 
 @Component({
@@ -57,7 +59,29 @@ export class FacultyscheduleComponent {
         if (response.success && response.schedules.length > 0) {
           const scheduleText = response.schedules[0].schedule_data;
           const scheduleDataObj = JSON.parse(scheduleText);
-          this.scheduleData = Array.from(scheduleDataObj);
+          this.scheduleData = [];
+          for (const day in scheduleDataObj) {
+            if (scheduleDataObj.hasOwnProperty(day)) {
+              const dayData = scheduleDataObj[day];
+              for (const time in dayData) {
+                if (dayData.hasOwnProperty(time)) {
+                  const timeData = dayData[time];
+                  const schedule: ScheduleData = {
+                    time,
+                    monday: '',
+                    tuesday: '',
+                    wednesday: '',
+                    thursday: '',
+                    friday: '',
+                    saturday: '',
+                    sunday: ''
+                  };
+                  schedule[day] = `${timeData.subject} (${timeData.room})`;
+                  this.scheduleData.push(schedule);
+                }
+              }
+            }
+          }
         } else {
           this.scheduleData = [];
         }
@@ -67,6 +91,7 @@ export class FacultyscheduleComponent {
       }
     );
   }
+
 
 
 }

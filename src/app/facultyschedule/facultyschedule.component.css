@@ -34,12 +34,15 @@ button {
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+margin-bottom: 30px;
 }
 
 table {
-  width: 100%;
+  min-width: 620px;
+  max-width: 1200px;
+  height: calc(100vh - 80px);
   border-collapse: collapse;
-  margin-top: 1rem;
+  margin-top: 50px;
 }
 
 thead {
@@ -75,5 +78,78 @@ tbody tr:nth-child(even) {
   th, td {
     padding: 0.25rem;
     font-size: 0.9rem;
+  }
+}
+
+/* App header */
+.app-header {
+  background-color: orange;
+  color: #fff;
+  height: 60px;
+  min-width: 660px;
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* add this line to center horizontally */
+}
+
+.header-left img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+}
+
+.app-name {
+  font-size: 20px;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 0;
+}
+
+.header-button:hover {
+  color: #ff5100;
+}
+
+/* Media queries */
+@media screen and (min-width: 768px) {
+  /* Key list */
+  table {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* App header */
+  .app-header {
+    height: 80px;
+  }
+
+  .app-name {
+    font-size: 28px;
   }
 }

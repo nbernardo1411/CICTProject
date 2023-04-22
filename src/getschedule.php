@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Prepare and bind statement to select schedule data for a specific faculty member from the database
-$stmt = $conn->prepare('SELECT faculty_name, schedule_data FROM schedules WHERE faculty_name = ?');
+$stmt = $conn->prepare('SELECT faculty_name, CAST(schedule_data AS CHAR) AS schedule_data FROM schedules WHERE faculty_name = ?');
 $stmt->bind_param('s', $_GET['faculty_name']);
 $stmt->execute();
 

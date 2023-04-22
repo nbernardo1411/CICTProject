@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Faculty Schedule</h1>
+
   <label class="assign-schedule" for="facultyName">Faculty Name:</label>
   <select id="facultyName" [(ngModel)]="facultyName">
     <option *ngFor="let faculty of facultyNames" [value]="faculty">{{ faculty }}</option>
@@ -19,16 +20,16 @@
       </tr>
     </thead>
     <tbody>
-      <div *ngFor="let schedule of scheduleData">
-        <p>{{schedule.time}}</p>
-        <p>{{schedule.monday}}</p>
-        <p>{{schedule.tuesday}}</p>
-        <p>{{schedule.wednesday}}</p>
-        <p>{{schedule.thursday}}</p>
-        <p>{{schedule.friday}}</p>
-        <p>{{schedule.saturday}}</p>
-        <p>{{schedule.sunday}}</p>
-      </div>
+      <tr *ngFor="let schedule of scheduleData">
+        <td>{{ schedule.time }}</td>
+        <td>{{ schedule.monday }}</td>
+        <td>{{ schedule.tuesday }}</td>
+        <td>{{ schedule.wednesday }}</td>
+        <td>{{ schedule.thursday }}</td>
+        <td>{{ schedule.friday }}</td>
+        <td>{{ schedule.saturday }}</td>
+        <td>{{ schedule.sunday }}</td>
+      </tr>
     </tbody>
   </table>
 </div>

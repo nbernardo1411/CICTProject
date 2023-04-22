@@ -14,8 +14,9 @@ export interface ScheduleData {
   thursday: string;
   friday: string;
   saturday: string;
-  sunday: string; // Define the `time` property on the `ScheduleData` type
+  sunday: string;
 }
+
 
 @Component({
   selector: 'app-facultyschedule',
@@ -27,6 +28,7 @@ export class FacultyscheduleComponent {
   scheduleData: ScheduleData[] = [];
   facultyNames: string[] = [];
   facultySchedules: ScheduleData[] = [];
+  timeSlots: string[] = ['7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM'];
 
   constructor(private http: HttpClient) {
     this.getFacultyNames();
@@ -39,7 +41,7 @@ export class FacultyscheduleComponent {
         this.facultyNames = response;
         if (this.facultyNames.length > 0) {
           this.facultyName = this.facultyNames[0];
-          this.getSchedule(); // call the getSchedule function here
+          this.getSchedule();
         }
       },
       error => {
@@ -53,8 +55,9 @@ export class FacultyscheduleComponent {
       response => {
         console.log(response);
         if (response.success && response.schedules.length > 0) {
-          const scheduleObj = JSON.parse(response.schedules[0].schedule_data);
-          this.scheduleData = Object.values(scheduleObj);
+          const scheduleText = response.schedules[0].schedule_data;
+          const scheduleDataObj = JSON.parse(scheduleText);
+          this.scheduleData = Array.from(scheduleDataObj);
         } else {
           this.scheduleData = [];
         }
@@ -64,5 +67,6 @@ export class FacultyscheduleComponent {
       }
     );
   }
+
 
 }

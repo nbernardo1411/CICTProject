@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Faculty Schedule</h1>
+  <label class="assign-schedule" for="facultyName">Faculty Name:</label>
+  <select id="facultyName" [(ngModel)]="facultyName">
+    <option *ngFor="let faculty of facultyNames" [value]="faculty">{{ faculty }}</option>
+  </select>
+  <button (click)="getSchedule()">Get Schedule</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngFor="let schedule of scheduleData">
+        <p>{{schedule.time}}</p>
+        <p>{{schedule.monday}}</p>
+        <p>{{schedule.tuesday}}</p>
+        <p>{{schedule.wednesday}}</p>
+        <p>{{schedule.thursday}}</p>
+        <p>{{schedule.friday}}</p>
+        <p>{{schedule.saturday}}</p>
+        <p>{{schedule.sunday}}</p>
+      </div>
+    </tbody>
+  </table>
+</div>

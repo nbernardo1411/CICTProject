@@ -6,7 +6,8 @@ ob_start();
 header('Content-Type: application/json');
 
 $email = $_POST['email'] ?? '';
-$password = $_POST['password'] ?? '';
+$password = $_POST['password'];
+
 
 
 // Create connection to MySQL database

@@ -22,11 +22,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './admin/component/login/auth.service';
 import { LoginComponent } from './admin/component/login/login.component';
 import { AttendanceComponent } from './attendance/attendance.component';
-import html2canvas from 'html2canvas';
+import { AuthGuard } from './auth.guard';
 import { FacultyhomeComponent } from './facultyhome/facultyhome.component';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { KeyborrowComponent } from './keyborrow/keyborrow.component';
+import { FacultyscheduleComponent } from './facultyschedule/facultyschedule.component';
 
 const routes: Routes = [
   {
@@ -71,7 +72,8 @@ const routes: Routes = [
     AttendanceChartComponent,
     AttendanceComponent,
     FacultyhomeComponent,
-    KeyborrowComponent
+    KeyborrowComponent,
+    FacultyscheduleComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +93,7 @@ const routes: Routes = [
 
 
   ],
-  providers: [AuthService, JwtHelperService,{
+  providers: [AuthService, AuthGuard, JwtHelperService,{
     provide: JWT_OPTIONS,
     useValue: JWT_OPTIONS
   }],

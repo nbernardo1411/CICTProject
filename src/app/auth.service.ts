@@ -1,28 +1,51 @@
 import { Injectable } from '@angular/core';
-
+import { UserService } from './user.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly localStorageKey = 'userId';
 
-  constructor() {}
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {}
 
-  login(userId: string) {
-    localStorage.setItem(this.localStorageKey, userId);
+  getAuthToken(): string | null {
+    return localStorage.getItem('authToken');
   }
 
-  logout() {
-    localStorage.removeItem(this.localStorageKey);
+  setAuthToken(token: string): void {
+    localStorage.setItem('authToken', token);
+    console.log('authToken saved:', token);
+  }
+
+  clearAuthToken(): void {
+    localStorage.removeItem('authToken');
+  }
+
+  login(userId: string, authToken: string): void {
+    console.log('authToken received:', authToken);
+    console.log('userId:', userId);
+    this.userService.setCurrentUser(userId);
+    this.setAuthToken(authToken);
+    this.router.navigate(['/facultyhome']);
+  }
+
+  logout(): void {
+    this.userService.setCurrentUser('');
+    this.clearAuthToken();
+    this.router.navigate(['/home']);
   }
 
   isLoggedIn(): boolean {
-    return localStorage.getItem(this.localStorageKey) !== null;
+    const userId = this.userService.getCurrentUser();
+    console.log('current user in auth service:', userId);
+    return !!userId && !!this.getAuthToken();
   }
 
-  getCurrentUser(): string | null {
-    return localStorage.getItem(this.localStorageKey);
+  getCurrentUser(): string {
+    return this.userService.getCurrentUser();
   }
-
 }

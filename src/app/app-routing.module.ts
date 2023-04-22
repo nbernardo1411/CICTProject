@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { FacultyhomeComponent } from './facultyhome/facultyhome.component';
 import { KeyborrowComponent } from './keyborrow/keyborrow.component';
+import { FacultyscheduleComponent } from './facultyschedule/facultyschedule.component';
+import { AuthGuard } from './auth.guard';
+import { HomeAuthGuard } from './home-auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,8 +23,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
   { path: 'faculty', component: FacultyComponent , canActivate: [AuthService] },
   { path: 'home', component: HomeComponent },
-  { path: 'keyborrow', component: KeyborrowComponent },
-  { path: 'facultyhome', component: FacultyhomeComponent},
+  { path: 'keyborrow', component: KeyborrowComponent, canActivate: [AuthGuard] },
+  { path: 'facultyhome', component: FacultyhomeComponent, canActivate: [AuthGuard]},
+  { path: 'facultyschedule', component: FacultyscheduleComponent, canActivate: [AuthGuard]},
   { path: 'accountcreate', component: AccountcreateComponent },
   { path: 'inventory', component: InventoryComponent , canActivate: [AuthService] },
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthService] },
@@ -29,9 +33,10 @@ const routes: Routes = [
 ];
 
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes),FormsModule],
   exports: [RouterModule],
-  providers: [AuthService]
+  providers: []
 })
 export class AppRoutingModule { }

@@ -18,7 +18,7 @@
         <div class="container">
           <h1>Faculty Schedule</h1>
           <label class="assign-schedule" for="facultyName">Faculty Name:</label>
-          <select id="facultyName" [(ngModel)]="facultyName">
+          <select id="facultyName" [(ngModel)]="name">
             <option *ngFor="let faculty of facultyList" [value]="faculty">{{ faculty }}</option>
           </select>
           <button class="orange-button" (click)="assignSchedule()">Assign Schedule</button>
@@ -38,7 +38,7 @@
     <tbody>
       <tr *ngFor="let timeSlot of timeSlots">
         <td>{{ timeSlot }}</td>
-        <td *ngFor="let day of days" (click)="editSchedule(timeSlot, day, facultyName)">
+        <td *ngFor="let day of days" (click)="editSchedule(timeSlot, day, name)">
           <div class="schedule-item" *ngIf="schedule[day][timeSlot]">
             <div class="schedule-item-subject">{{ schedule[day][timeSlot].subject }}</div>
             <div class="schedule-item-room">{{ schedule[day][timeSlot].room }}</div>

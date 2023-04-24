@@ -17,6 +17,7 @@ import { FacultyscheduleComponent } from './facultyschedule/facultyschedule.comp
 import { AuthGuard } from './auth.guard';
 import { HomeAuthGuard } from './home-auth.guard';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'admin/login', component: LoginComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'inventory', component: InventoryComponent , canActivate: [AuthService] },
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthService] },
   { path: 'attendance', component: AttendanceComponent , canActivate: [AuthService] },
+
 ];
 
 

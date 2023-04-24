@@ -21,6 +21,9 @@
 }
 .box-form .left button:hover {background-color: #ff9100dc}
 
+.btn-group{
+  justify-content: end;
+}
 
 .right {
   width: 100%;

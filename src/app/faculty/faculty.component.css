@@ -183,12 +183,17 @@ h2 {
   border: none;
 }
 
+.Sect button{
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px black;
+}
+
 .Section-Sort{
   height: 30px;
   width: 150px;
   position: relative;
-  background-color: orange;
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   text-align: center;
   line-height: 30px;
   cursor: pointer;
@@ -213,10 +218,13 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
 }
 .Sort-List a:hover{
+  border-radius: 10px;
   background-color: orange;
   color: white;
 }
 .Section-Sort:hover .Sort-List{
   display: block;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   box-shadow: 0px 2px 4px black;
 }

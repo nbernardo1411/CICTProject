@@ -53,7 +53,8 @@ const routes: Routes = [
   {
     path: 'attendance',
     component: AttendanceComponent
-  }
+  },
+
 ];
 
 @NgModule({
@@ -73,7 +74,8 @@ const routes: Routes = [
     AttendanceComponent,
     FacultyhomeComponent,
     KeyborrowComponent,
-    FacultyscheduleComponent
+    FacultyscheduleComponent,
+
   ],
   imports: [
     BrowserModule,

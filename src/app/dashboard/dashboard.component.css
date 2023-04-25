@@ -237,3 +237,8 @@
   animation-name: fadeIn;
   animation-duration: 1s;
 }
+.total{
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}

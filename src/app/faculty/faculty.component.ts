@@ -1,77 +1,100 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-interface SideBarToggle {
-  screenWidth: number;
-  collapsed: boolean;
-}
-
-interface Faculty {
-  id: number;
+export interface User {
+  id_number: number;
   name: string;
   email: string;
+  type: string;
+}
+interface ApiResponse {
+  success: boolean;
+  message: string;
 }
 
+
 @Component({
-  selector: 'app-faculty',
+  selector: 'app-users',
   templateUrl: './faculty.component.html',
   styleUrls: ['./faculty.component.css']
 })
-export class FacultyComponent {
-  id: number | undefined;
-  name: string | undefined;
-  email: string | undefined;
+export class FacultyComponent implements OnInit {
+
   isSideBarCollapsed = false;
   screenWidth = 0;
   onToggleSideBar(): void {
     // Add implementation for the method here
   }
-  editingFaculty: Faculty | null = null; // property to keep track of the faculty being edited
+  users: User[] = [];
+  showForm = false; // Define the showForm property here
 
-  facultyList: Faculty[] = [
+  constructor(private http: HttpClient) {}
 
-  ];
-
-  addFaculty() {
-    const newFaculty: Faculty = {
-      id: 0,
-      name: '',
-      email: ''
-    };
-    this.editingFaculty = newFaculty;
-    this.facultyList.push(newFaculty);
+  ngOnInit(): void {
+    this.getUsers();
   }
 
-  editFaculty(faculty: Faculty) {
-    this.editingFaculty = faculty; // set the faculty being edited
-    this.id = faculty.id;
-    this.name = faculty.name;
-    this.email = faculty.email;
+  getUsers(): void {
+    this.http.get<any>('http://localhost/CICTProject/src/displayusers.php').subscribe(response => {
+      if (response.success) {
+        this.users = response.data;
+      } else {
+        console.log(response.message);
+      }
+    });
   }
+  name: string = "";
+  email: string = "";
+  type: string = "";
+  password: string = "";
+  confirmPassword: string = "";
+  idNumber: string="";
 
-  saveFaculty() {
-    if (this.editingFaculty) {
-      // update the faculty being edited with the new values
-      this.editingFaculty.id = this.id!;
-      this.editingFaculty.name = this.name!;
-      this.editingFaculty.email = this.email!;
-      this.editingFaculty = null; // reset the editing faculty
-      this.id = undefined;
-      this.name = undefined;
-      this.email = undefined;
+  onSubmit(form: NgForm) {
+    if (!form.valid) {
+      return;
     }
-  }
 
-  cancelEdit() {
-    this.editingFaculty = null; // reset the editing faculty
-    this.id = undefined;
-    this.name = undefined;
-    this.email = undefined;
-  }
+    const name = this.name;
+    const email = this.email;
+    const idNumber = this.idNumber;
+    const type = this.type;
+    const password = this.password;
+    const confirmPassword = this.confirmPassword;
 
-  deleteFaculty(faculty: Faculty) {
-    const index = this.facultyList.indexOf(faculty);
-    if (index !== -1) {
-      this.facultyList.splice(index, 1);
+    if (password !== confirmPassword) {
+      alert('The passwords you entered do not match. Please try again.');
+      return;
     }
+
+    const data = {
+  name,
+  email,
+  type,
+  password,
+  idNumber,
+};
+
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+
+    this.http.post<ApiResponse>('http://localhost/CICTProject/src/accountcreate.php', JSON.stringify(data), {headers}).subscribe(
+      (response) => {
+        if (response.success) {
+          alert(response.message);
+        } else {
+          alert(response.message);
+        }
+      },
+      (error) => {
+        console.error(error);
+        alert('An error occurred while creating your account. Please try again later.');
+      }
+    );
+  }
+
+
+  toggleForm() {
+    this.showForm = !this.showForm;
   }
 }

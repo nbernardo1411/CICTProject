@@ -9,77 +9,72 @@
 <body>
   <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
   <div class="CICT-Head2">
-    <h3>Faculty and Schedule Management</h3>
+    <h3>Users and Schedule Management</h3>
   </div>
 	<div class="cont">
-		<div class="nav">
-			<a href="faculty" class="active">Faculty</a>
-			<a href="schedule">Schedule</a>
+    <div class="nav">
+      <a href="faculty" class="active">Users</a>
+      <a href="schedule">Schedule</a>
       <a href="attendance">Attendance</a>
-      <div class="form">
-        <input type="text" placeholder="Search..." >
-        <button (click)="addFaculty()">Add New User
-          <img src="assets/add-group.png" alt="Add Faculty">
+
+      <div>
+        <button (click)="toggleForm()">
+          <img src="assets/add-group.png">
+          Add New User
         </button>
+
+        <div *ngIf="showForm">
+          <form (ngSubmit)="onSubmit(accountCreateForm)" #accountCreateForm="ngForm">
+            <div class="inputs">
+              <input type="text" id="name" placeholder="Fullname" required [(ngModel)]="name" name="name">
+              <br>
+              <input type="email" id="email" placeholder="Email Adress " required [(ngModel)]="email" name="email">
+              <br>
+              <input type="text" id="idNumber" placeholder="ID Number" required [(ngModel)]="idNumber" name="idNumber"><br>
+              <label for="type">Type:</label>
+              <select name="type" id="type" class="my-select" [(ngModel)]="type">
+                <option value="attendancechecker">Attendance Checker</option>
+                <option value="faculty">Faculty</option>
+              </select>
+              <input type="password" id="password" placeholder="password" required [(ngModel)]="password" name="password">
+              <br>
+              <input type="password" id="conpassword" placeholder="confirm password" required [(ngModel)]="confirmPassword" name="confirmPassword">
+              <br>
+            </div>
+            <br><br>
+            <br>
+            <div class="butt">
+              <button type="submit" [disabled]="!accountCreateForm.form.valid">Register</button>
+            </div>
+          </form>
+        </div>
       </div>
 
-		</div>
 
-		<section class ="box"id="faculty">
-      <div class="Sect">
-        <button class="Section-Sort">Sort by LastName
-          <div class="Sort-List">
-            <a href="#">Sort by FirstName</a>
-            <a href="#">Sort by Email</a>
-            <a href="#">Sort by ID No.</a>
-          </div>
-        </button>
-      </div>
+      <div class="card">
+        <div class="card-body">
 
-
-
-
-
-      <table>
-        <thead>
-          <tr>
-            <th>No.</th>
-            <th>ID Number</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Account Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          <ng-container *ngFor="let faculty of facultyList; let i=index">
-            <tr *ngIf="editingFaculty === faculty; else showFacultyData">
-              <td>{{i + 1}}</td>
-              <td><input type="text" [(ngModel)]="id" maxlength="6"></td>
-              <td><input type="text" [(ngModel)]="name" maxlength="30"></td>
-              <td><input type="text" [(ngModel)]="email" maxlength="30"></td>
-              <td class="action-buttons">
-                <button class="save" (click)="saveFaculty()">Save</button>
-                <button class="cancel" (click)="cancelEdit()">Cancel</button>
-              </td>
-            </tr>
-            <ng-template #showFacultyData>
+          <table class="centered bigger-table">
+            <thead>
               <tr>
-                <td>{{i + 1}}</td>
-                <td>{{faculty.id}}</td>
-                <td>{{faculty.name}}</td>
-                <td>{{faculty.email}}</td>
-                <td class="action-buttons">
-                  <button class="edit" (click)="editFaculty(faculty)">Edit</button>
-                  <button class="delete" (click)="deleteFaculty(faculty)">Delete</button>
-                </td>
+                <th>ID Number</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
               </tr>
-            </ng-template>
-          </ng-container>
-        </tbody>
-      </table>
-    </section>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.id_number }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.type }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-	</div>
-</body>
-</html>
+        </div>
+      </div>
 

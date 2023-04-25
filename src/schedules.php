@@ -16,25 +16,34 @@ if ($conn->connect_error) {
   die('Connection failed: ' . $conn->connect_error);
 }
 
-// Prepare and bind statement to insert schedule into the database
-$stmt = $conn->prepare('INSERT INTO schedules (faculty_name, schedule_data) VALUES (?, ?)');
-$stmt->bind_param('ss', $name, $schedule);
+if ($name) {
+  // Prepare and bind statement to insert schedule into the database
+  $stmt = $conn->prepare('INSERT INTO schedules (faculty_name, schedule_data) VALUES (?, ?)');
+  $stmt->bind_param('ss', $name, $schedule);
 
-// Execute statement and check for errors
-if ($stmt->execute()) {
-  $response = [
-    'success' => true,
-    'message' => 'Schedule assigned successfully!',
-  ];
+  // Execute statement and check for errors
+  if ($stmt->execute()) {
+    $response = [
+      'success' => true,
+      'message' => 'Schedule assigned successfully!',
+    ];
+  } else {
+    $response = [
+      'success' => false,
+      'message' => 'An error occurred while assigning schedule. Please try again later.',
+    ];
+  }
+
+  // Close statement
+  $stmt->close();
 } else {
   $response = [
     'success' => false,
-    'message' => 'An error occurred while assigning schedule. Please try again later.',
+    'message' => 'No user selected to assign the schedule.',
   ];
 }
 
-// Close statement and database connection
-$stmt->close();
+// Close database connection
 $conn->close();
 
 // Send response to client

@@ -1,13 +1,13 @@
 table {
   border-collapse: collapse;
   width: 100%;
-
-}
+  margin: 0 auto;}
 th, td {
 text-align: center;
 padding: 8px;
 border-bottom: 1px solid #ddd;
 max-width: 0;
+margin: 0%;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
@@ -227,4 +227,73 @@ h2 {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   box-shadow: 0px 2px 4px black;
+}
+.card
+{
+  margin-top: 5px;
+  width: 1600px;
+  margin-left: 120px;
+}
+/* CSS for the form */
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputs input,
+.inputs select {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 3px grey;
+  width: 250px;
+  margin-top: 10px;
+  margin-right: 300px;
+}
+
+.inputs select {
+  width: 270px;
+  margin-top: 10px;
+}
+
+.butt {
+  display: flex;
+  justify-content: center;
+
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffae00;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #ff8800;
+}
+
+/* CSS for the button */
+
+button {
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  margin-left: 560px;
+}
+
+button:hover {
+  background-color: rgb(255, 115, 0);
 }

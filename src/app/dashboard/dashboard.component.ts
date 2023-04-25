@@ -17,6 +17,20 @@ interface Key {
   borrowedAt: string | null;
 }
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: string;
+}
+
+interface UserResponse {
+  success: boolean;
+  data?: User[];
+  message?: string;
+  total?: number;
+}
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -24,6 +38,8 @@ interface Key {
 })
 export class DashboardComponent implements OnInit {
   keys: Key[] = [];
+  users: User[] = [];
+  userTotal: number = 0;
 
   currentDate: Date = new Date();
   isSideBarCollapsed = false;
@@ -37,12 +53,29 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.fetchKeys();
+    this.fetchUsers();
   }
 
   fetchKeys() {
     this.http.get<Key[]>('http://localhost/CICTProject/src/index.php?borrowed=true').subscribe(
       keys => {
         this.keys = keys;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  fetchUsers() {
+    this.http.get<UserResponse>('http://localhost/CICTProject/src/get_users.php').subscribe(
+      response => {
+        if (response.success) {
+          this.users = response.data || [];
+          this.userTotal = response.total || 0;
+        } else {
+          console.log(response.message);
+        }
       },
       error => {
         console.log(error);

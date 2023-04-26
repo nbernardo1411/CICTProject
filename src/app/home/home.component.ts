@@ -4,18 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
 
-declare var FormData: any;
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  email: string = '';
-  password: string = '';
-  errorMessage: string = '';
-  showPassword: boolean = false;
+  email = '';
+  password = '';
+  errorMessage = '';
+  showPassword = false;
 
   constructor(private router: Router, private http: HttpClient, private authService: AuthService, private userService: UserService) {}
 
@@ -24,15 +22,20 @@ export class HomeComponent {
     console.log('Password:', this.password);
 
     const formData = new FormData();
-    formData.append('email', this.email);
-    formData.append('password', this.password);
+formData.set('email', this.email);
+formData.set('password', this.password);
+
+
+    console.log('formData:', formData); // log the formData object to see if it's correctly set
 
     this.http.post<any>('http://localhost/CICTProject/src/login.php', formData).subscribe(
       response => {
+        console.log('API response:', response);
+
         if (response.success) {
           // User is authenticated, log in and redirect to dashboard
-          this.authService.login(response.userId, response.authToken);
-          this.userService.setCurrentUser(response.userId);
+          this.authService.login(response);
+          this.userService.setUser(response.userId);
           this.router.navigate(['/facultyhome']);
         } else {
           // Authentication failed, display error message
@@ -48,6 +51,8 @@ export class HomeComponent {
       }
     );
   }
+
+
 
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();

@@ -17,6 +17,7 @@ import { FacultyscheduleComponent } from './facultyschedule/facultyschedule.comp
 import { AuthGuard } from './auth.guard';
 import { HomeAuthGuard } from './home-auth.guard';
 import { CanActivate } from '@angular/router';
+import { AttendancecheckerComponent } from './attendancechecker/attendancechecker.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'facultyhome', component: FacultyhomeComponent, canActivate: [AuthGuard] },
   { path: 'keyborrow', component: KeyborrowComponent, canActivate: [AuthGuard] },
   { path: 'facultyschedule', component: FacultyscheduleComponent, canActivate: [AuthGuard] },
+  { path: 'attendanceche', component: AttendancecheckerComponent, canActivate: [AuthGuard] },
   { path: 'accountcreate', component: AccountcreateComponent },
   { path: 'inventory', component: InventoryComponent , canActivate: [AuthService] },
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthService] },

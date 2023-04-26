@@ -1,1 +1,47 @@
-<p>attendancechecker works!</p>
+<header class="app-header">
+  <div class="header-container">
+    <div class="header-left">
+      <a routerLink="/facultyhome">
+        <button class="header-button">
+          <img src="assets/home.png" alt="Home">
+        </button>
+      </a>
+    </div>
+    <div class="header-center">
+      <h1 class="app-name">Faculty Attendance</h1>
+    </div>
+  </div>
+</header>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>Faculty Attendance</h1>
+      <form (ngSubmit)="onSubmit()">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" [(ngModel)]="formData.date" placeholder="Enter date" />
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="formData.name" placeholder="Enter name" />
+
+        <label for="room">Room:</label>
+        <input type="text" id="room" name="room" [(ngModel)]="formData.room" placeholder="Enter room" />
+
+        <label>Status:</label>
+        <div class="radio-buttons">
+          <label for="present">Present</label>
+          <input type="radio" id="present" name="status" [(ngModel)]="formData.status" value="present" checked />
+
+          <label for="absent">Absent</label>
+          <input type="radio" id="absent" name="status" [(ngModel)]="formData.status" value="absent" />
+        </div>
+
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+  </body>
+

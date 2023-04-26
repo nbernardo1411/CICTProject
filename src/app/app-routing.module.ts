@@ -16,6 +16,7 @@ import { KeyborrowComponent } from './keyborrow/keyborrow.component';
 import { FacultyscheduleComponent } from './facultyschedule/facultyschedule.component';
 import { AuthGuard } from './auth.guard';
 import { HomeAuthGuard } from './home-auth.guard';
+import { CanActivate } from '@angular/router';
 
 
 const routes: Routes = [
@@ -24,14 +25,13 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
   { path: 'faculty', component: FacultyComponent , canActivate: [AuthService] },
   { path: 'home', component: HomeComponent },
+  { path: 'facultyhome', component: FacultyhomeComponent, canActivate: [AuthGuard] },
   { path: 'keyborrow', component: KeyborrowComponent, canActivate: [AuthGuard] },
-  { path: 'facultyhome', component: FacultyhomeComponent, canActivate: [AuthGuard]},
-  { path: 'facultyschedule', component: FacultyscheduleComponent, canActivate: [AuthGuard]},
+  { path: 'facultyschedule', component: FacultyscheduleComponent, canActivate: [AuthGuard] },
   { path: 'accountcreate', component: AccountcreateComponent },
   { path: 'inventory', component: InventoryComponent , canActivate: [AuthService] },
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthService] },
   { path: 'attendance', component: AttendanceComponent , canActivate: [AuthService] },
-
 ];
 
 

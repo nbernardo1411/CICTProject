@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Key } from './key.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-keyborrow',
@@ -15,14 +16,16 @@ export class KeyborrowComponent implements OnInit {
   borrowedKeysCount = 0;
   availableKeysCount = 0;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
+
 
   ngOnInit() {
     this.fetchKeys();
   }
 
   fetchKeys() {
-    this.http.get<Key[]>('http://localhost/CICTProject/src/index.php')
+    const userId = this.authService.currentUserSubject.getValue();
+    this.http.get<Key[]>(`http://localhost/CICTProject/src/index.php?user_id=${userId}`)
       .subscribe(
         keys => {
           this.keys = keys;
@@ -34,9 +37,10 @@ export class KeyborrowComponent implements OnInit {
       );
   }
 
+
   onBorrow(key: Key) {
     key.borrowed = true;
-    key.borrowedBy = prompt('Enter borrower name:');
+    key.borrowedBy = this.authService.currentUserSubject.getValue(); // set borrower ID to current user ID
     key.borrowedAt = new Date();
     this.updateKeyCounts();
 
@@ -53,24 +57,37 @@ export class KeyborrowComponent implements OnInit {
 
 
   onReturn(key: Key) {
-    key.borrowed = false;
-    key.borrowedBy = '';
-    key.borrowedAt = undefined;
-    this.updateKeyCounts();
+    const currentUser = this.authService.currentUserSubject.getValue();
+    if (key.borrowedBy === currentUser) {
+      key.borrowed = false;
+      key.borrowedBy = '';
+      key.borrowedAt = undefined;
+      this.updateKeyCounts();
 
-    this.http.put(`http://localhost/CICTProject/src/index.php?key_id=${key.id}`, key)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+      this.http.put(`http://localhost/CICTProject/src/index.php?key_id=${key.id}`, key)
+        .subscribe(
+          response => {
+            console.log(response);
+          },
+          error => {
+            console.log(error);
+          }
+        );
+    } else {
+      alert('Only the user who borrowed the key can return it.');
+    }
   }
+
+
   onViewBorrowedDetails(key: Key) {
-    this.borrowedKey = key;
+    const currentUser = this.authService.currentUserSubject.getValue();
+    if (key.borrowedBy === currentUser) {
+      this.borrowedKey = key;
+    } else {
+      console.log('Only the user who borrowed the key can view its details.');
+    }
   }
+
 
   closeBorrowedDetails() {
     this.borrowedKey = null;

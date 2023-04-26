@@ -28,6 +28,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { KeyborrowComponent } from './keyborrow/keyborrow.component';
 import { FacultyscheduleComponent } from './facultyschedule/facultyschedule.component';
+import { AttendancecheckerComponent } from './attendancechecker/attendancechecker.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,7 @@ const routes: Routes = [
     FacultyhomeComponent,
     KeyborrowComponent,
     FacultyscheduleComponent,
+    AttendancecheckerComponent,
 
   ],
   imports: [

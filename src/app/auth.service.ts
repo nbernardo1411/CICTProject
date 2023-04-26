@@ -6,6 +6,7 @@ import { UserService } from './user.service';
 interface User {
   id_number: string;
   auth_token: string;
+  email: string;
 }
 
 interface ApiResponse {
@@ -18,7 +19,7 @@ interface ApiResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private currentUserSubject = new BehaviorSubject<string>('');
+  public currentUserSubject = new BehaviorSubject<string>('');
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -77,4 +78,8 @@ export class AuthService {
       console.log('userId is undefined or null');
     }
   }
+  getCurrentUserSubject(): BehaviorSubject<string> {
+    return this.currentUserSubject;
+  }
 }
+

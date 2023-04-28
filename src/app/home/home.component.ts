@@ -35,7 +35,7 @@ formData.set('password', this.password);
         if (response.success) {
           // User is authenticated, log in and redirect to dashboard
           this.authService.login(response);
-          this.userService.setUser(response.userId);
+          this.authService.updateCurrentUser(response.user.id_number);
           this.router.navigate(['/facultyhome']);
         } else {
           // Authentication failed, display error message

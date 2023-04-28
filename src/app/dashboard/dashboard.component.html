@@ -36,23 +36,8 @@
 
 
 
-      <div class="attendance">
-        <h2>Attendance Log</h2>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Time In</th>
-            <th>Time Out</th>
-            <th>Status</th>
-          </tr>
-          <tr>
-            <td>No Data</td>
-            <td>No Data</td>
-            <td>No Data</td>
-            <td>No Data</td>
-          </tr>
-        </table>
-      </div>
+
+
 
       <div class="today-schedule">
         <h2>Total Number of Users</h2>
@@ -78,11 +63,29 @@
               </ng-container>
             </tr>
           </tbody>
-
         </table>
       </div>
 
-
+<div class="attendance">
+      <h2>Attendance Log</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Room</th>
+          <th>Status</th>
+        </tr>
+        <tr *ngFor="let attendance of attendanceData">
+          <td>{{ attendance.name }}</td>
+          <td>{{ attendance.date }}</td>
+          <td>{{ attendance.room }}</td>
+          <td>{{ attendance.status }}</td>
+        </tr>
+        <tr *ngIf="attendanceData.length === 0">
+          <td colspan="4">No Data</td>
+        </tr>
+      </table>
+    </div>
     </div>
   </body>
 </html>

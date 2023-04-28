@@ -33,7 +33,9 @@
         <input type="text" id="date" name="date" [(ngModel)]="formData.date" placeholder="Enter date" />
 
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" [(ngModel)]="formData.name" placeholder="Enter name" />
+        <select id="name" name="name" [(ngModel)]="formData.name">
+          <option *ngFor="let name of userNames" [value]="name">{{ name }}</option>
+        </select>
 
         <label for="room">Room:</label>
         <input type="text" id="room" name="room" [(ngModel)]="formData.room" placeholder="Enter room" />
@@ -50,5 +52,6 @@
         <button type="submit" class="submit-button">Submit</button>
       </form>
     </div>
+
   </body>
 

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 interface AttendanceFormData {
   date: string;
@@ -8,25 +9,50 @@ interface AttendanceFormData {
   status: string;
 }
 
+
 @Component({
   selector: 'app-attendancechecker',
   templateUrl: './attendancechecker.component.html',
   styleUrls: ['./attendancechecker.component.css'],
 })
-export class AttendancecheckerComponent {
+export class AttendancecheckerComponent implements OnInit {
   formData: AttendanceFormData = {
-    date: '',
+    date: new Date().toISOString().slice(0, 10),
     name: '',
     room: '',
     status: 'present',
   };
+  userNames: string[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
-  onSubmit(): void {
-    const url = 'submit-attendance.php';
-    this.http.post(url, this.formData).subscribe((response) => {
-      console.log(response);
+  ngOnInit(): void {
+    const url = 'http://localhost/CICTProject/src/get-user-names.php';
+    this.http.get<string[]>(url).subscribe((userNames) => {
+      this.userNames = userNames;
     });
   }
+
+  onSubmit() {
+    const name = this.formData.name;
+    const date = this.formData.date;
+    const room = this.formData.room;
+    const status = this.formData.status;
+
+    const formData = { name, date, room, status };
+
+    this.http.post('http://localhost/CICTProject/src/submit-attendance.php', formData)
+      .subscribe(
+        (response) => {
+          console.log('Attendance submitted successfully');
+          alert('Attendance submitted successfully');
+        },
+        (error) => {
+          console.error('Error submitting attendance:', error);
+        }
+      );
+  }
+
+
+
 }

@@ -6,6 +6,7 @@
   margin: 0;
   font-size: 30px;
   color: #333;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .welcome-admin {
   position: relative;
@@ -41,7 +42,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
   animation: fadeIn 1s;
 }
 .dashboard > .attendance{
@@ -50,7 +51,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
   animation: fadeIn 1s;
 }
 
@@ -137,7 +138,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 }
 .welcome-admin {
   font-family: Arial, sans-serif;
@@ -159,7 +160,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
   animation-name: fade-in;
   animation-duration: 1s;
 }
@@ -188,7 +189,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 }
 .key-log {
   font-family: Arial, sans-serif;

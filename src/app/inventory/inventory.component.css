@@ -1,9 +1,10 @@
 .container {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
   max-width: 800px; /* adjust as needed */
   margin: 0 auto; /* center horizontally */
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 }
 
 @media (max-width: 768px) { /* adjust breakpoint as needed */
@@ -11,6 +12,12 @@
     max-width: 100%;
     padding: 5px;
   }
+}
+h2{
+  margin: 0;
+  font-size: 30px;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Style the form */

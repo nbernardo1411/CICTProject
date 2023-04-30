@@ -18,7 +18,7 @@ max-width: 200px; /* Change this to your desired max-width */
 th {
 background-color: orange;
 color: white;
-font-family: montserrat;
+font-family: Arial, Helvetica, sans-serif;
 }
 
 .action-buttons {
@@ -68,7 +68,7 @@ border-radius: 50px;
 margin: 10px;
 width: 100px;
 height: 40px;
-font-family: montserrat;
+font-family: Arial, Helvetica, sans-serif;
 
 }
 .nav a:hover{
@@ -166,8 +166,7 @@ h2 {
     box-sizing: border-box;
     width: 900px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
     height: 1000px;
     overflow: auto;
     max-height: 500px;
@@ -233,6 +232,9 @@ h2 {
   margin-top: 5px;
   width: 1600px;
   margin-left: 120px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 /* CSS for the form */
 

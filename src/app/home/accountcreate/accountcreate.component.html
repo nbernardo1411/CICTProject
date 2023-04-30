@@ -47,6 +47,7 @@
     <input type="password" id="password" placeholder="password" required [(ngModel)]="password" name="password">
     <br>
     <input type="password" id="conpassword" placeholder="confirm password" required [(ngModel)]="confirmPassword" name="confirmPassword">
+    <p class="error" *ngIf="accountCreateForm.submitted && (name == '' || email == '' || idNumber == '' || password == '' || confirmPassword == '')">Please fill out all required fields.</p>
     <br>
   </div>
   <br><br>

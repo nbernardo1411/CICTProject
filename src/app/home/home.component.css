@@ -48,6 +48,7 @@ select {
   border-radius: 3px;
   box-sizing: border-box;
   margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 label {

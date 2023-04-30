@@ -2,8 +2,7 @@
   font-size: 16px;
   color: #333;
   background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+
   padding: 8px 41px;
   margin: 8px;
 }
@@ -11,16 +10,15 @@
   color: #ffffff;
   font-size: 10px;
   padding: 10px 55px;
-  border-radius: 50px;
-  border: 2;
-  border-color: #ffffff;
-  outline: 0;
-  box-shadow: 0px 4px 20px 0px #000000a6;
+  box-shadow: 0px 2px 10px 0px #000000a6;
   font-weight: bold;
   background-color: transparent;
 }
 .box-form .left button:hover {background-color: #ff9100dc}
 
+.btn-group{
+  justify-content: end;
+}
 
 .right {
   width: 100%;
@@ -85,7 +83,7 @@ button:hover {background-color: #f88400}
     border: 2;
     border-color: #ffffff;
     outline: 0;
-    box-shadow: 0px 4px 20px 0px #000000a6;
+    box-shadow: 0px 2px 10px 0px #000000a6;
     font-weight: bold;
     margin: 0;
     margin-bottom: 10%;

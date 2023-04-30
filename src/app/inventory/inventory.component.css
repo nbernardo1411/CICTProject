@@ -64,6 +64,7 @@ table th {
 
 table td.borrowed {
   background-color: #ffc107;
+  color: #fff;
 }
 
 /* Style the modal */
@@ -174,4 +175,15 @@ table td.borrowed {
   border-radius: 5px;
   font-weight: bolder;
 }
-.ba{color: rgb(0, 195, 255);}.av{color: rgb(115, 255, 0);}
+.ba .borrowed{
+  color: black;
+}
+.ba .borrowed-keys-count{color: rgb(0, 195, 255);}
+.av .available {
+  color: black;
+}
+
+.av .available-keys-count {
+  color: rgb(115, 255, 0);
+}
+

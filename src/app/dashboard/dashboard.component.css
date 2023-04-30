@@ -41,7 +41,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
   animation: fadeIn 1s;
 }
 .dashboard > .attendance{
@@ -50,7 +50,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
   animation: fadeIn 1s;
 }
 
@@ -60,7 +60,7 @@
   border-radius: 5px;
   padding: 10px;
   overflow-x: auto;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .attendance-status h2 {
@@ -137,7 +137,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
 }
 .welcome-admin {
   font-family: Arial, sans-serif;
@@ -159,7 +159,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 10);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
   animation-name: fade-in;
   animation-duration: 1s;
 }
@@ -188,7 +188,7 @@
   padding: 20px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 10);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10);
 }
 .key-log {
   font-family: Arial, sans-serif;

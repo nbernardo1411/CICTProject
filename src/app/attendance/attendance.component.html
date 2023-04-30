@@ -45,10 +45,10 @@
                   <th>Status</th>
                 </tr>
                 <tr *ngFor="let attendance of filteredAttendanceData">
-                  <td>{{ attendance.name }}</td>
+                  <td style="text-transform: capitalize">{{ attendance.name }}</td>
                   <td>{{ attendance.date }}</td>
                   <td>{{ attendance.room }}</td>
-                  <td>{{ attendance.status }}</td>
+                  <td style="text-transform: capitalize">{{ attendance.status }}</td>
                 </tr>
                 <tr *ngIf="filteredAttendanceData.length === 0">
                   <td colspan="4">No Data</td>

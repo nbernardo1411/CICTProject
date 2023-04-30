@@ -141,9 +141,10 @@
   left: 80px;
   transform: translateY(-50%);
   margin: 0;
-  font-size: 40px;
+  font-size: 35px;
+  font-weight: bold;
   color: #ffffff;
-  font-family: monsterrat;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .CICT-Head p {
   position: absolute;

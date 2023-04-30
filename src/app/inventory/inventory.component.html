@@ -15,8 +15,17 @@
   <div class="key-count-container">
 
 Total number of keys <img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ keys.length }}
-    <div class ="av">Available<img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ availableKeysCount }}</div>
-    <div class ="ba">Borrowed<img src="assets/key (1).png" style="width: 15px; height: 15px;">: {{ borrowedKeysCount }}</div>
+    <div class="av">
+      <span class="available">Available</span>
+      <img src="assets/key (1).png" style="width: 15px; height: 15px;">
+      <span class="available-keys-count">: {{ availableKeysCount }}</span>
+    </div>
+
+    <div class ="ba">
+      <span class="borrowed">Borrowed</span>
+      <img src="assets/key (1).png" style="width: 15px; height: 15px;">
+      <span class="borrowed-keys-count">: {{ borrowedKeysCount }}</span>
+    </div>
   </div>
 
 </form>

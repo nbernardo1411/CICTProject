@@ -19,7 +19,8 @@ export class AttendanceChartComponent implements OnInit {
   ngOnInit(): void {
     const ctx = document.getElementById('attendance-chart') as HTMLCanvasElement | null;
     if (ctx) {
-      this.fetchAttendanceData().subscribe((data: AttendanceData) => {
+      const currentDate = new Date().toISOString().split('T')[0]; // Get the current date in ISO format
+      this.fetchAttendanceData(currentDate).subscribe((data: AttendanceData) => {
         const config: ChartConfiguration<ChartType, number[], string> = {
           type: 'doughnut',
           data: {
@@ -42,7 +43,8 @@ export class AttendanceChartComponent implements OnInit {
     }
   }
 
-  private fetchAttendanceData() {
-    return this.http.get<AttendanceData>('http://localhost/CICTProject/src/get-attendance-data.php');
+  private fetchAttendanceData(date: string) {
+    const url = `http://localhost/CICTProject/src/get-attendance-data.php?date=${date}`;
+    return this.http.get<AttendanceData>(url);
   }
 }

@@ -9,8 +9,11 @@ if ($conn->connect_error) {
   die('Connection failed: ' . $conn->connect_error);
 }
 
-// Query database for attendance data
-$sql = "SELECT COUNT(*) as count, status FROM attendance GROUP BY status";
+// Get current date
+$current_date = date('Y-m-d');
+
+// Query database for attendance data on current date
+$sql = "SELECT COUNT(*) as count, status FROM attendance WHERE date = '$current_date' GROUP BY status";
 $result = $conn->query($sql);
 
 // Check for errors

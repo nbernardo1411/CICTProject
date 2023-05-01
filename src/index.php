@@ -5,10 +5,10 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header('Content-Type: application/json');
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "cict_scheduling_key_inv";
+$servername = "auth-db612.hstgr.io";
+$username = "u456146523_cmkis";
+$password = "Taelol12345@";
+$dbname = "u456146523_cict_schedule";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

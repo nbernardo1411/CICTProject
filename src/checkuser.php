@@ -7,6 +7,7 @@ header('Content-Type: application/json');
 
 // Start the session
 session_start();
+$conn = new mysqli('auth-db612.hstgr.io', 'u456146523_cmkis', 'Taelol12345@', 'u456146523_cict_schedule');
 
 // Check if user is authenticated as a faculty member
 if (isset($_SESSION['user']) && $_SESSION['user']['type'] === 'faculty') {

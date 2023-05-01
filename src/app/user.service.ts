@@ -43,7 +43,7 @@ export class UserService {
   }
 
   private getUserData(userId: string) {
-    const url = `http://localhost/CICTProject/src/get-user-data.php?id=${userId}`;
+    const url = `https://cmkis.online/backend/get-user-data.php?id=${userId}`;
     return this.http.get<User>(url);
   }
   getCurrentUserType(): string | null {

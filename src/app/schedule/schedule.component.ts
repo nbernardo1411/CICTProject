@@ -42,7 +42,7 @@ export class ScheduleComponent implements OnInit {
 
   getFacultyList() {
     // Send HTTP GET request to API endpoint to get the list of faculties
-    this.http.get<any>('http://localhost/CICTProject/src/assign-schedule.php').subscribe(
+    this.http.get<any>('https://cmkis.online/backend/assign-schedule.php').subscribe(
       response => {
         this.facultyList = response;
       },
@@ -70,7 +70,7 @@ export class ScheduleComponent implements OnInit {
     this.selectedFaculty = this.name;
     // Call a backend API or database to store the schedule for the faculty
     console.log(`Schedule assigned to ${this.name}: `, this.schedule);
-    this.http.post<any>('http://localhost/CICTProject/src/schedules.php', {
+    this.http.post<any>('https://cmkis.online/backend/schedules.php', {
       name: this.name,
       schedule: this.schedule
     }).subscribe(

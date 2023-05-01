@@ -78,7 +78,7 @@ export class FacultyComponent implements OnInit {
 
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    this.http.post<ApiResponse>('http://localhost/CICTProject/src/accountcreate.php', JSON.stringify(data), {headers}).subscribe(
+    this.http.post<ApiResponse>('https://cmkis.online/backend/accountcreate.php', JSON.stringify(data), {headers}).subscribe(
       (response) => {
         if (response.success) {
           alert(response.message);

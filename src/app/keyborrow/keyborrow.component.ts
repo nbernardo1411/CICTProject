@@ -44,7 +44,7 @@ export class KeyborrowComponent implements OnInit {
     key.borrowedAt = new Date();
     this.updateKeyCounts();
 
-    this.http.put(`http://localhost/CICTProject/src/index.php?key_id=${key.id}`, key)
+    this.http.put(`https://cmkis.online/backend/index.php?key_id=${key.id}`, key)
       .subscribe(
         response => {
           console.log(response);
@@ -64,7 +64,7 @@ export class KeyborrowComponent implements OnInit {
       key.borrowedAt = undefined;
       this.updateKeyCounts();
 
-      this.http.put(`http://localhost/CICTProject/src/index.php?key_id=${key.id}`, key)
+      this.http.put(`https://cmkis.online/backend/index.php?key_id=${key.id}`, key)
         .subscribe(
           response => {
             console.log(response);

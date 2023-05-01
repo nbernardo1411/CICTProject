@@ -39,7 +39,7 @@ export class AttendanceComponent implements OnInit {
   }
 
   fetchAttendance(): void {
-    this.http.get<Attendance[]>('http://localhost/CICTProject/src/getattendance.php').subscribe(
+    this.http.get<Attendance[]>('https://cmkis.online/backend/getattendance.php').subscribe(
       response => {
         this.attendanceData = response;
         this.filteredAttendanceData = response;

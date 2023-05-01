@@ -27,7 +27,7 @@ export class AttendancecheckerComponent implements OnInit {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit(): void {
-    const url = 'http://localhost/CICTProject/src/get-user-names.php';
+    const url = 'https://cmkis.online/backend/get-user-names.php';
     this.http.get<string[]>(url).subscribe((userNames) => {
       this.userNames = userNames;
     });
@@ -41,7 +41,7 @@ export class AttendancecheckerComponent implements OnInit {
 
     const formData = { name, date, room, status };
 
-    this.http.post('http://localhost/CICTProject/src/submit-attendance.php', formData)
+    this.http.post('https://cmkis.online/backend/submit-attendance.php', formData)
       .subscribe(
         (response) => {
           console.log('Attendance submitted successfully');

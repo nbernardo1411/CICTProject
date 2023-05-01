@@ -37,7 +37,7 @@ export class FacultyscheduleComponent {
   }
 
   getFacultyNames() {
-    this.http.get<string[]>('http://localhost/CICTProject/src/getfacultyusers.php').subscribe(
+    this.http.get<string[]>('https://cmkis.online/backend/getfacultyusers.php').subscribe(
       response => {
         console.log(response);
         this.facultyNames = response;
@@ -53,7 +53,7 @@ export class FacultyscheduleComponent {
   }
 
   getSchedule() {
-    this.http.get<{ success: boolean, schedules: Schedule[] }>(`http://localhost/CICTProject/src/getschedule.php?faculty_name=${this.facultyName}`).subscribe(
+    this.http.get<{ success: boolean, schedules: Schedule[] }>(`https://cmkis.online/backend/getschedule.php?faculty_name=${this.facultyName}`).subscribe(
       response => {
         console.log(response);
         if (response.success && response.schedules.length > 0) {

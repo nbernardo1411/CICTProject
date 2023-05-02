@@ -25,7 +25,7 @@ export class KeyborrowComponent implements OnInit {
 
   fetchKeys() {
     const userId = this.authService.currentUserSubject.getValue();
-    this.http.get<Key[]>(`http://localhost/CICTProject/src/index.php?user_id=${userId}`)
+    this.http.get<Key[]>(`https://cmkis.online/backend/index.php?user_id=${userId}`)
       .subscribe(
         keys => {
           this.keys = keys;

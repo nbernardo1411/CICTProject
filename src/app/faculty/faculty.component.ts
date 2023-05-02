@@ -36,7 +36,7 @@ export class FacultyComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.http.get<any>('http://localhost/CICTProject/src/displayusers.php').subscribe(response => {
+    this.http.get<any>('https://cmkis.online/backend/displayusers.php').subscribe(response => {
       if (response.success) {
         this.users = response.data;
       } else {

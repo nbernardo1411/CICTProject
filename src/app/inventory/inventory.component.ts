@@ -27,7 +27,7 @@ export class InventoryComponent implements OnInit {
   }
 
   fetchKeys() {
-    this.http.get<Key[]>('http://localhost/CICTProject/src/index.php')
+    this.http.get<Key[]>('https://cmkis.online/backend/index.php')
       .subscribe(
         keys => {
           this.keys = keys;
@@ -41,7 +41,7 @@ export class InventoryComponent implements OnInit {
 
   onAddKey() {
     const newKey = new Key(this.newKeyName, this.newRoomName);
-    this.http.post<Key>('http://localhost/CICTProject/src/index.php', newKey)
+    this.http.post<Key>('https://cmkis.online/backend/index.php', newKey)
       .subscribe(
         key => {
           this.keys.push(key);
@@ -61,7 +61,7 @@ export class InventoryComponent implements OnInit {
     key.borrowedAt = new Date();
     this.updateKeyCounts();
 
-    this.http.put(`http://localhost/CICTProject/src/index.php?key_id=${key.id}`, key)
+    this.http.put(`https://cmkis.online/backend/index.php?key_id=${key.id}`, key)
       .subscribe(
         response => {
           console.log(response);
@@ -79,7 +79,7 @@ export class InventoryComponent implements OnInit {
     key.borrowedAt = undefined;
     this.updateKeyCounts();
 
-    this.http.put(`http://localhost/CICTProject/src/index.php?key_id=${key.id}`, key)
+    this.http.put(`https://cmkis.online/backend/index.php?key_id=${key.id}`, key)
       .subscribe(
         response => {
           console.log(response);
@@ -97,7 +97,7 @@ export class InventoryComponent implements OnInit {
       this.keys.splice(index, 1);
       this.updateKeyCounts();
 
-      this.http.delete(`http://localhost/CICTProject/src/index.php?id=${key.id}`)
+      this.http.delete(`https://cmkis.online/backend/index.php?id=${key.id}`)
         .subscribe(
           response => {
             console.log(response);

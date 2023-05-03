@@ -24,8 +24,6 @@ import { LoginComponent } from './admin/component/login/login.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { AuthGuard } from './auth.guard';
 import { FacultyhomeComponent } from './facultyhome/facultyhome.component';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { KeyborrowComponent } from './keyborrow/keyborrow.component';
 import { FacultyscheduleComponent } from './facultyschedule/facultyschedule.component';
 import { AttendancecheckerComponent } from './attendancechecker/attendancechecker.component';
@@ -84,7 +82,6 @@ const routes: Routes = [
     MatFormFieldModule,
     FormsModule, // Add this line
     CommonModule,
-    JwtModule.forRoot({}),
     AppRoutingModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -97,10 +94,7 @@ const routes: Routes = [
 
 
   ],
-  providers: [AuthService, AuthGuard, JwtHelperService,{
-    provide: JWT_OPTIONS,
-    useValue: JWT_OPTIONS
-  }],
+  providers: [AuthService, AuthGuard],
    // add AuthService to the providers array
   bootstrap: [AppComponent]
 })

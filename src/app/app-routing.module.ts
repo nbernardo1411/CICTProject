@@ -21,7 +21,7 @@ import { AttendancecheckerComponent } from './attendancechecker/attendancechecke
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin/login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
   { path: 'faculty', component: FacultyComponent , canActivate: [AuthService] },

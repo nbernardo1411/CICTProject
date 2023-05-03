@@ -44,7 +44,7 @@ export class AttendanceChartComponent implements OnInit {
   }
 
   private fetchAttendanceData(date: string) {
-    const url = `http://localhost/CICTProject/src/get-attendance-data.php?date=${date}`;
+    const url = `https://cmkis.online/backend/get-attendance-data.php?date=${date}`;
     return this.http.get<AttendanceData>(url);
   }
 }

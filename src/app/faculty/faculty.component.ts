@@ -36,7 +36,7 @@ export class FacultyComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.http.get<any>('http://localhost/CICTProject/src/displayusers.php').subscribe(response => {
+    this.http.get<any>('https://cmkis.online/backend/displayusers.php').subscribe(response => {
       if (response.success) {
         this.users = response.data;
       } else {
@@ -78,7 +78,7 @@ export class FacultyComponent implements OnInit {
 
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    this.http.post<ApiResponse>('http://localhost/CICTProject/src/accountcreate.php', JSON.stringify(data), {headers}).subscribe(
+    this.http.post<ApiResponse>('https://cmkis.online/backend/accountcreate.php', JSON.stringify(data), {headers}).subscribe(
       (response) => {
         if (response.success) {
           alert(response.message);

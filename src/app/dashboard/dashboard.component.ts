@@ -72,7 +72,7 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchKeys() {
-    this.http.get<Key[]>('http://localhost/CICTProject/src/index.php?borrowed=true').subscribe(
+    this.http.get<Key[]>('https://cmkis.online/backend/index.php?borrowed=true').subscribe(
       keys => {
         this.keys = keys;
       },
@@ -83,7 +83,7 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchUsers() {
-    this.http.get<UserResponse>('http://localhost/CICTProject/src/get_users.php').subscribe(
+    this.http.get<UserResponse>('https://cmkis.online/backend/get_users.php').subscribe(
       response => {
         if (response.success) {
           this.users = response.data || [];
@@ -102,7 +102,7 @@ export class DashboardComponent implements OnInit {
     const today = new Date(); // get current date
     const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`; // format date as yyyy-mm-dd
 
-    this.http.get<any[]>('http://localhost/CICTProject/src/get-attendance.php').subscribe(
+    this.http.get<any[]>('https://cmkis.online/backend/get-attendance.php').subscribe(
       response => {
         this.attendanceData = response.filter(data => new Date(data.date).toDateString() === today.toDateString()).map(data => ({
           name: data.name,

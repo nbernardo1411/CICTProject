@@ -2,7 +2,8 @@
 header('Content-Type: application/json');
 
 // Create connection to MySQL database
-$conn = new mysqli('localhost', 'root', '', 'cict_scheduling_key_inv');
+$conn = new mysqli('auth-db612.hstgr.io', 'u456146523_cmkis', 'Taelol12345@', 'u456146523_cict_schedule');
+
 
 // Check for errors
 if ($conn->connect_error) {

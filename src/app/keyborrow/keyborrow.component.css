@@ -96,6 +96,9 @@ button {
 .header-left img {
   height: 40px;
   margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .header-center {

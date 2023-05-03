@@ -108,6 +108,8 @@ tbody tr:nth-child(even) {
 .header-left img {
   height: 40px;
   margin-right: 10px;
+  margin-top: 20px;
+  align-items: center;
 }
 
 .header-center {

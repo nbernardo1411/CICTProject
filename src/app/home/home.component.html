@@ -26,10 +26,10 @@
         <h2>Log In</h2>
         <form (ngSubmit)="onLogin()">
           <div class="inputs">
-            <input type="email" name="email" [(ngModel)]="email" required>
+            <input type="email" placeholder="Username" name="email" [(ngModel)]="email" required>
             <br>
             <div class="password-input">
-              <input type="{{ showPassword ? 'text' : 'password' }}" name="password" [(ngModel)]="password" required class="fa fa-eye" (click)="showPassword = !showPassword">
+              <input type="{{ showPassword ? 'text' : 'password' }}" placeholder="Password" name="password" [(ngModel)]="password" required class="fa fa-eye" (click)="showPassword = !showPassword">
               <i class="fa fa-eye" (click)="showPassword = !showPassword"></i>
             </div>
           </div>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <div *ngIf="loading" class="loading-screen">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Rest of the dashboard component content -->
 
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="dashboard.component.css">

@@ -50,6 +50,7 @@ interface AttendanceResponse {
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  loading = false;
   keys: Key[] = [];
   users: User[] = [];
   userTotal: number = 0;
@@ -72,17 +73,21 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchKeys() {
+    this.loading = true;
     this.http.get<Key[]>('https://cmkis.online/backend/index.php?borrowed=true').subscribe(
       keys => {
         this.keys = keys;
+        this.loading = false;
       },
       error => {
         console.log(error);
+        this.loading = false;
       }
     );
   }
 
   fetchUsers() {
+    this.loading = true;
     this.http.get<UserResponse>('https://cmkis.online/backend/get_users.php').subscribe(
       response => {
         if (response.success) {
@@ -91,14 +96,17 @@ export class DashboardComponent implements OnInit {
         } else {
           console.log(response.message);
         }
+        this.loading = false;
       },
       error => {
         console.log(error);
+        this.loading = false;
       }
     );
   }
 
   fetchAttendance() {
+    this.loading = true;
     const today = new Date(); // get current date
     const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`; // format date as yyyy-mm-dd
 
@@ -110,9 +118,11 @@ export class DashboardComponent implements OnInit {
           room: data.room,
           status: data.status
         }));
+        this.loading = false;
       },
       error => {
         console.log(error);
+        this.loading = false;
       }
     );
   }

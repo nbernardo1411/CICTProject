@@ -40,7 +40,7 @@ export class KeyborrowComponent implements OnInit {
 
   onBorrow(key: Key) {
     key.borrowed = true;
-    key.borrowedBy = this.authService.currentUserSubject.getValue(); // set borrower ID to current user ID
+    key.borrowedBy = this.authService.currentUserSubject.getValue()?.name; // set borrower ID to current user ID
     key.borrowedAt = new Date();
     this.updateKeyCounts();
 
@@ -57,10 +57,10 @@ export class KeyborrowComponent implements OnInit {
 
 
   onReturn(key: Key) {
-    const currentUser = this.authService.currentUserSubject.getValue();
+    const currentUser = this.authService.currentUserSubject.getValue().name; // Get the user ID as a string
     if (key.borrowedBy === currentUser) {
       key.borrowed = false;
-      key.borrowedBy = '';
+      key.borrowedBy = null;
       key.borrowedAt = undefined;
       this.updateKeyCounts();
 
@@ -78,9 +78,8 @@ export class KeyborrowComponent implements OnInit {
     }
   }
 
-
   onViewBorrowedDetails(key: Key) {
-    const currentUser = this.authService.currentUserSubject.getValue();
+    const currentUser = this.authService.currentUserSubject.getValue().name; // Get the user ID as a string
     if (key.borrowedBy === currentUser) {
       this.borrowedKey = key;
     } else {

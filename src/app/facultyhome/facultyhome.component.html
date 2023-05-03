@@ -14,8 +14,9 @@
       background-size: cover;
     }
     </style>
-  <div class="container">
-    <h1>Welcome User</h1>
+<div class="container">
+  <h1>Welcome {{ (authService.currentUser$ | async)?.name || 'User' }}!</h1>
+
 
     <div class="schedule">
       <h2>Schedule View</h2>

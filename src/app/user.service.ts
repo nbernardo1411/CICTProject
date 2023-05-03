@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 interface User {
+  name: string;
   id_number: string;
   auth_token: string;
   email: string;
-  type: string; // Add the `type` field
+  type: string;
 }
 
 @Injectable({
@@ -16,9 +17,10 @@ export class UserService {
   private currentUserSubject = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient) {
-    const userId = localStorage.getItem('currentUser');
-    if (userId) {
-      this.getUserData(userId).subscribe(user => {
+    const user = localStorage.getItem('currentUser');
+    if (user) {
+      const parsedUser = JSON.parse(user);
+      this.getUserData(parsedUser.name).subscribe(user => {
         this.currentUserSubject.next(user);
       });
     }
@@ -27,28 +29,31 @@ export class UserService {
   getCurrentUser(): User | null {
     const user = this.currentUserSubject.getValue();
     const authToken = localStorage.getItem('authToken');
-    console.log('current user:', user?.id_number, 'auth token:', authToken);
+    console.log('current user:', user?.name, 'auth token:', authToken);
     return user;
   }
 
-  setUser(userId: string): void {
-    this.getUserData(userId).subscribe(user => {
-      localStorage.setItem('currentUser', user.id_number);
-      this.currentUserSubject.next(user);
-    });
+  setCurrentUser(user: User): void {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.currentUserSubject.next(user);
   }
 
   getCurrentUser$() {
     return this.currentUserSubject.asObservable();
   }
 
-  private getUserData(userId: string) {
-    const url = `https://cmkis.online/backend/get-user-data.php?id=${userId}`;
+  private getUserData(name: string) {
+    const url = `https://cmkis.online/backend/get-user-data.php?name=${name}`;
     return this.http.get<User>(url);
   }
+
   getCurrentUserType(): string | null {
     const user = this.getCurrentUser();
     return user ? user.type : null;
   }
 
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+  }
 }

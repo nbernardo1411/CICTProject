@@ -10,7 +10,20 @@ import { UserService } from '../user.service';
 })
 export class FacultyhomeComponent implements OnInit {
   currentUser: any;
+ imageUrl!: string; // Add the ! operator to indicate it will be initialized later
+  altText = 'Profile Picture';
 
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.imageUrl = reader.result as string;
+      };
+    }
+  }
   constructor(
     private router: Router,
     public authService: AuthService,

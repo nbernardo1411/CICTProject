@@ -14,6 +14,15 @@
       background-size: cover;
     }
     </style>
+
+<div style="text-align: center;">
+  <img *ngIf="!imageUrl" src="assets/stranger.png" [alt]="altText" class="profile-image-small" (click)="fileInput.click()">
+  <img *ngIf="imageUrl" [src]="imageUrl" [alt]="altText" class="profile-image-small" (click)="fileInput.click()">
+
+  <input id="profile-image-input" type="file" accept="image/*" (change)="onFileSelected($event)" #fileInput style="display: none;">
+</div>
+
+
 <div class="container">
   <h1>Welcome {{ (authService.currentUser$ | async)?.name || 'User' }}!</h1>
 

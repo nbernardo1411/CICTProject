@@ -46,7 +46,7 @@
   animation: fadeIn 1s;
 }
 .dashboard > .attendance{
-  width: 900px;
+  width: 380px;
   margin: 10px;
   padding: 20px;
   background-color: #fff;
@@ -55,14 +55,7 @@
   animation: fadeIn 1s;
 }
 
-.attendance {
-  font-family: Arial, sans-serif;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  overflow-x: auto;
-  font-weight: normal;
-}
+
 
 .attendance-status h2 {
   text-align: center;
@@ -81,57 +74,7 @@
   margin-top: 10px;
   white-space: nowrap;
 }
-.attendance h2 {
-  text-align: center;
-  font-weight: bold;
-  color: orange;
-}
 
-.attendance table {
-  width: 100%;
-  border-collapse: collapse;
-  color: gray;
-  margin-top: 10px;
-  white-space: nowrap;
-}
-
-.attendance th, .attendance td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-.attendance th {
-  background-color: #f2f2f2;
-}
-
-.attendance tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.attendance tr:hover {
-  background-color: #ddd;
-}
-
-/* Designs */
-.attendance table {
-  box-shadow: 1px 1px 5px #ccc;
-  border-radius: 5px;
-}
-
-.attendance th {
-  background-color: #eee;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.attendance td {
-  background-color: #fff;
-}
-
-.attendance tr:hover td {
-  background-color: #f5f5f5;
-}
 .dashboard > .today-schedule{
   width: 300px;
   margin: 10px;
@@ -302,4 +245,30 @@
   to {
     transform: rotateY(360deg) rotateX(360deg);
   }
+}
+.attendance a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: orange;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+.attendance {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-x: auto;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.attendance a:hover {
+  background-color: darkorange;
 }

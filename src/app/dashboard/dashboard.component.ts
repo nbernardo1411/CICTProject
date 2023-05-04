@@ -50,6 +50,15 @@ interface AttendanceResponse {
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  images: string[] = [
+    'assets/design.png',
+    'assets/design2.png',
+    'assets/design3.png',
+    'assets/design4.png'
+  ];
+
+  selectedImage?: string;
+
   loading = false;
   keys: Key[] = [];
   users: User[] = [];
@@ -70,6 +79,8 @@ export class DashboardComponent implements OnInit {
     this.fetchKeys();
     this.fetchUsers();
     this.fetchAttendance();
+    const randomIndex = Math.floor(Math.random() * this.images.length);
+    this.selectedImage = this.images[randomIndex];
   }
 
   fetchKeys() {
@@ -138,4 +149,5 @@ export class DashboardComponent implements OnInit {
     this.borrowerName = key.borrowedBy || 'N/A';
     this.borrowedAt = key.borrowedAt || 'N/A';
   }
+
 }

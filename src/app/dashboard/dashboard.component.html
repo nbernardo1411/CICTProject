@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <div *ngIf="loading" class="loading-screen">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Rest of the dashboard component content -->
 
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="dashboard.component.css">
@@ -22,23 +27,15 @@
         <div class="clock">
           <span class="time">{{ currentDate | date:'shortTime' }}</span>
         </div>
-        <img src="assets/design.png" alt="calendar image" class="center-image">
+        <img [src]="selectedImage" alt="calendar image" class="center-image">
+
       </div>
-
-
-
     <div class="attendance-status">
-      <h2>Attendance Status</h2>
+      <h2>Today's Attendance Status</h2>
       <div class="attendance-chart-container">
         <app-attendance-chart></app-attendance-chart>
       </div>
     </div>
-
-
-
-
-
-
       <div class="today-schedule">
         <h2>Total Number of Users</h2>
         <p class = "total">{{ userTotal }}</p>
@@ -68,23 +65,7 @@
 
 <div class="attendance">
       <h2>Attendance Log</h2>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Room</th>
-          <th>Status</th>
-        </tr>
-        <tr *ngFor="let attendance of attendanceData">
-          <td>{{ attendance.name }}</td>
-          <td>{{ attendance.date }}</td>
-          <td>{{ attendance.room }}</td>
-          <td>{{ attendance.status }}</td>
-        </tr>
-        <tr *ngIf="attendanceData.length === 0">
-          <td colspan="4">No Data</td>
-        </tr>
-      </table>
+      <a href="attendance">Check Attendance Log Here!</a>
     </div>
     </div>
   </body>

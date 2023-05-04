@@ -3,7 +3,7 @@ export class Key {
   name: string;
   room: string;
   borrowed: boolean = false;
-  borrowedBy?: string | null;
+  borrowedBy: string | null | undefined;
   borrowedAt?: Date;
 
   constructor(name: string, room: string, borrowedBy?: string, borrowedAt?: Date) {

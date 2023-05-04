@@ -7,6 +7,7 @@ interface User {
   id_number: string;
   auth_token: string;
   email: string;
+  name: any;
 }
 
 interface ApiResponse {
@@ -19,7 +20,7 @@ interface ApiResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  public currentUserSubject = new BehaviorSubject<string>('');
+  public currentUserSubject = new BehaviorSubject<User>({id_number: '', auth_token: '', email: '', name: ''});
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -44,12 +45,12 @@ export class AuthService {
     console.log('API response:', response);
     const { success, message, user } = response;
     if (success) {
-      const { id_number, auth_token } = user;
+      const { name, auth_token } = user;
       console.log('authToken received:', auth_token);
-      console.log('userId:', id_number);
+      console.log('name:', name);
       this.setAuthToken(auth_token);
-      this.userService.setUser(id_number);
-      this.updateCurrentUser(id_number);
+      this.userService.setCurrentUser(name);
+      this.updateCurrentUser(user);
       this.router.navigate(['/facultyhome']);
     } else {
       console.log('Login failed:', message);
@@ -57,29 +58,29 @@ export class AuthService {
   }
 
   logout(): void {
-    this.updateCurrentUser('');
+    this.updateCurrentUser({id_number: '', auth_token: '', email: '', name: ''});
     this.clearAuthToken();
     this.router.navigate(['/home']);
   }
 
   isLoggedIn(): boolean {
-    const userId = this.currentUserSubject.getValue();
-    console.log('current user in auth service:', userId);
-    return !!userId && !!this.getAuthToken();
+    const user = this.currentUserSubject.getValue();
+    console.log('current user in auth service:', user);
+    return !!user.name && !!this.getAuthToken();
   }
 
-  updateCurrentUser(userId: string) {
-    console.log('Setting current user:', userId);
-    if (userId) {
-      this.currentUserSubject.next(userId);
-      localStorage.setItem('currentUser', userId);
-      console.log('current user set to:', userId);
+  updateCurrentUser(user: User) {
+    console.log('Setting current user:', user.name);
+    if (user.name) {
+      this.currentUserSubject.next(user);
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      console.log('current user set to:', user.name);
     } else {
-      console.log('userId is undefined or null');
+      console.log('name is undefined or null');
     }
   }
-  getCurrentUserSubject(): BehaviorSubject<string> {
+
+  getCurrentUserSubject(): BehaviorSubject<User> {
     return this.currentUserSubject;
   }
 }
-

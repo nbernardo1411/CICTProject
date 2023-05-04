@@ -62,18 +62,31 @@
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 		}
 	</style>
+
+
 </head>
 <body>
 	<div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
-
+  <div *ngIf="loading" class="loading-screen">
+    <div class="spinner"></div>
+  </div>
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
+<<<<<<< HEAD
 	<br>
     <input type="text" id="username" placeholder="Username" name="username" required [(ngModel)]="username">
   </div>
   <div class="form-group">
 	<br>
     <input type="password" id="password" placeholder="Password" name="password" required [(ngModel)]="password">
+=======
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="" name="username" required [(ngModel)]="username">
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="" name="password" required [(ngModel)]="password">
+>>>>>>> c2d7c5f2596c1a8981eaa325d5cab0e4aaaa6e8e
   </div>
   <div class="form-group">
     <input type="submit" value="Login">

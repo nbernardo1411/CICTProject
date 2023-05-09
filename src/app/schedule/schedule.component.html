@@ -22,6 +22,7 @@
             <option *ngFor="let faculty of facultyList" [value]="faculty">{{ faculty }}</option>
           </select>
           <button class="orange-button" (click)="assignSchedule()">Assign Schedule</button>
+          <a href="adminviewsched"><button class="orange-button1">View Schedules</button></a>
           <table #scheduleTable>
     <thead>
       <tr>

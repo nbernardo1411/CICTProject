@@ -27,6 +27,7 @@ import { FacultyhomeComponent } from './facultyhome/facultyhome.component';
 import { KeyborrowComponent } from './keyborrow/keyborrow.component';
 import { FacultyscheduleComponent } from './facultyschedule/facultyschedule.component';
 import { AttendancecheckerComponent } from './attendancechecker/attendancechecker.component';
+import { AdminviewschedComponent } from './adminviewsched/adminviewsched.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,7 @@ const routes: Routes = [
     KeyborrowComponent,
     FacultyscheduleComponent,
     AttendancecheckerComponent,
+    AdminviewschedComponent,
 
   ],
   imports: [

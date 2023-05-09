@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Faculty and Schedule Management - Schedule</title>
+  </head>
+  <body>
+    <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
+    <div class="CICT-Head2">
+      <h3>Users and Schedule Management</h3>
+    </div>
+    <div class="cont">
+      <div class="nav">
+        <a href="faculty">Users</a>
+        <a href="schedule" class="active">Schedule</a>
+        <a href="attendance">Attendance</a>
+        <div class="container">
+          <h1>Faculty Schedule</h1>
+          <label class="assign-schedule" for="facultyName">Faculty Name:</label>
+          <select id="facultyName" [(ngModel)]="facultyName">
+            <option *ngFor="let faculty of facultyNames" [value]="faculty">{{ faculty }}</option>
+          </select>
+          <button (click)="getSchedule()">Show Schedules</button>
+          <a href="schedule"><button class="orange-button1">Go Back</button></a>
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let schedule of scheduleData; let i = index">
+                <td>{{ schedule.time }}</td>
+                <td>{{ schedule.monday }}</td>
+                <td>{{ schedule.tuesday }}</td>
+                <td>{{ schedule.wednesday }}</td>
+                <td>{{ schedule.thursday }}</td>
+                <td>{{ schedule.friday }}</td>
+                <td>{{ schedule.saturday }}</td>
+                <td>{{ schedule.sunday }}</td>
+                <td>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+

@@ -18,7 +18,7 @@ import { AuthGuard } from './auth.guard';
 import { HomeAuthGuard } from './home-auth.guard';
 import { CanActivate } from '@angular/router';
 import { AttendancecheckerComponent } from './attendancechecker/attendancechecker.component';
-
+import { AdminviewschedComponent } from './adminviewsched/adminviewsched.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'inventory', component: InventoryComponent , canActivate: [AuthService] },
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthService] },
   { path: 'attendance', component: AttendanceComponent , canActivate: [AuthService] },
+  { path: 'adminviewsched', component: AdminviewschedComponent  , canActivate: [AuthService] }
 ];
 
 

@@ -173,3 +173,20 @@ font-family: Arial, Helvetica, sans-serif;
   .ora-button:hover {
     background-color: #f1a385;
   }
+  .orange-button1{
+    position: absolute;
+    right: 0;
+    margin-right: 250px;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .orange-button1:hover {
+    background-color: #f1a385;
+  }
